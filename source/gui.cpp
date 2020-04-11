@@ -360,18 +360,26 @@ bool GUI::LoadDataFiles(wxString& error, wxArrayString& warnings)
 		return false;
 	}
 
-	g_gui.SetLoadDone(20, "Loading items.otb file...");
-	if(!g_items.loadFromOtb(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "items.otb"), error, warnings)) {
-		error = "Couldn't load items.otb: " + error;
+	// g_gui.SetLoadDone(20, "Loading items.otb file...");
+	// if(!g_items.loadFromOtb(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "items.otb"), error, warnings)) {
+	// 	error = "Couldn't load items.otb: " + error;
+	// 	g_gui.DestroyLoadBar();
+	// 	UnloadVersion();
+	// 	return false;
+	// }
+
+	g_gui.SetLoadDone(20, "Loading items.yaml file...");
+	if(!g_items.loadFromYAML(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "items.yaml"), error, warnings)) {
+		error = "Couldn't load items.yaml: " + error;
 		g_gui.DestroyLoadBar();
 		UnloadVersion();
 		return false;
 	}
 
-	g_gui.SetLoadDone(30, "Loading items.xml ...");
-	if(!g_items.loadFromGameXml(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "items.xml"), error, warnings)) {
-		warnings.push_back("Couldn't load items.xml: " + error);
-	}
+	// g_gui.SetLoadDone(30, "Loading items.xml ...");
+	// if(!g_items.loadFromGameXml(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "items.xml"), error, warnings)) {
+	// 	warnings.push_back("Couldn't load items.xml: " + error);
+	// }
 
 	g_gui.SetLoadDone(45, "Loading creatures.xml ...");
 	if(!g_creatures.loadFromXML(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "creatures.xml"), true, error, warnings)) {

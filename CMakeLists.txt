@@ -28,9 +28,11 @@ find_package(wxWidgets COMPONENTS html aui gl adv core net base REQUIRED)
 
 find_package(GLUT REQUIRED)
 
+find_package(yaml-cpp REQUIRED)
+
 include(${wxWidgets_USE_FILE})
 include(source/CMakeLists.txt)
 add_executable(rme ${rme_H} ${rme_SRC})
 
 include_directories(${Boost_INCLUDE_DIRS} ${LibArchive_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIR} ${GLUT_INCLUDE_DIRS})
-target_link_libraries(rme ${wxWidgets_LIBRARIES} ${Boost_LIBRARIES} ${LibArchive_LIBRARIES} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
+target_link_libraries(rme ${wxWidgets_LIBRARIES} ${Boost_LIBRARIES} ${LibArchive_LIBRARIES} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} yaml-cpp)

@@ -361,6 +361,8 @@ public:
 	ItemType& getItemType(int id);
 	ItemType& getItemIdByClientID(int spriteId);
 
+	bool loadFromYAML(const FileName& datafile, wxString& error, wxArrayString& warnings);
+
 	bool loadFromOtb(const FileName& datafile, wxString& error, wxArrayString& warnings);
 	bool loadFromGameXml(const FileName& datafile, wxString& error, wxArrayString& warnings);
 	bool loadItemFromGameXml(pugi::xml_node itemNode, int id);

@@ -27,6 +27,8 @@
 #include "item.h"
 #include "pugicast.h"
 
+#include <yaml-cpp/yaml.h>
+
 ItemDatabase g_items;
 
 ItemType::ItemType() :
@@ -64,6 +66,7 @@ ItemType::ItemType() :
 	hookSouth(false),
 	canReadText(false),
 	canWriteText(false),
+	allowDistRead(false),
 	replaceable(true),
 	decays(false),
 	stackable(false),
@@ -570,7 +573,7 @@ bool ItemDatabase::loadFromOtbVer3(BinaryNode* itemNode, wxString& error, wxArra
 		t->group = ItemGroup_t(u8);
 
 		switch(t->group) {
-			case  ITEM_GROUP_NONE:
+			case ITEM_GROUP_NONE:
 			case ITEM_GROUP_GROUND:
 			case ITEM_GROUP_SPLASH:
 			case ITEM_GROUP_FLUID:
@@ -700,6 +703,53 @@ bool ItemDatabase::loadFromOtbVer3(BinaryNode* itemNode, wxString& error, wxArra
 			items.set(t->id, t);
 		}
 	}
+	return true;
+}
+
+bool ItemDatabase::loadFromYAML(const FileName& datafile, wxString& error, wxArrayString& warnings)
+{
+	std::string filename = nstr((datafile.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + datafile.GetFullName()));
+	YAML::Node itemsNode = YAML::LoadFile(filename);
+
+	for (auto it = itemsNode.begin(); it != itemsNode.end(); ++it) {
+        const YAML::Node& item = *it;
+        const YAML::Node& attributes = item["attributes"];
+        const YAML::Node& properties = item["properties"];
+
+		ItemType* iType = newd ItemType();
+
+		iType->id = item["id"].as<uint16_t>();
+		iType->clientID = iType->id;
+		iType->sprite = static_cast<GameSprite*>(g_gui.gfx.getSprite(iType->id));
+
+		// group
+		if (properties["ground"]) {
+			iType->group = ItemGroup_t(ITEM_GROUP_GROUND);
+		} else if (properties["fuild_container"]) {
+			iType->group = ItemGroup_t(ITEM_GROUP_FLUID);
+		} else if (properties["fluid"]) {
+			iType->group = ItemGroup_t(ITEM_GROUP_SPLASH);
+		} else if (properties["container"]) {
+			iType->group = ItemGroup_t(ITEM_GROUP_CONTAINER);
+			iType->type = ITEM_TYPE_CONTAINER;
+		} else {
+			iType->group = ItemGroup_t(ITEM_GROUP_NONE);
+		}
+
+		iType->pickupable = properties["pickupable"] ? properties["pickupable"].as<bool>() : false;
+		iType->stackable  = properties["stackable"]  ? properties["stackable"].as<bool>()  : false;
+		iType->volume     = properties["volume"]     ? properties["volume"].as<uint32_t>() : 0;
+
+		if(iType) {
+			if(items[iType->id]) {
+				warnings.push_back("items.yaml: Duplicate items");
+				delete items[iType->id];
+			}
+			items.set(iType->id, iType);
+			max_item_id = iType->id;
+		}
+	}
+
 	return true;
 }
 
