@@ -20,13 +20,13 @@
 #ifndef RME_DEFINITIONS_H_
 #define RME_DEFINITIONS_H_
 
-#define __W_RME_APPLICATION_NAME__ wxString("Remere's Map Editor")
+#define __W_RME_APPLICATION_NAME__ wxString("Ruby Map Editor")
 
 // Version info
 // xxyyzzt (major, minor, subversion)
-#define __RME_VERSION_MAJOR__      3
-#define __RME_VERSION_MINOR__      6
-#define __RME_SUBVERSION__         1
+#define __RME_VERSION_MAJOR__      1
+#define __RME_VERSION_MINOR__      0
+#define __RME_SUBVERSION__         0
 
 #define __LIVE_NET_VERSION__       5
 

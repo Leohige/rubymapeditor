@@ -161,7 +161,7 @@ wxString GUI::GetLocalDataDirectory()
 	} else {
 		FileName dir = dynamic_cast<wxStandardPaths&>(wxStandardPaths::Get()).GetUserDataDir();
 #ifdef __WINDOWS__
-		dir.AppendDir("Remere's Map Editor");
+		dir.AppendDir("Ruby Map Editor");
 #else
 		dir.AppendDir(".rme");
 #endif
@@ -181,7 +181,7 @@ wxString GUI::GetLocalDirectory()
 	} else {
 		FileName dir = dynamic_cast<wxStandardPaths&>(wxStandardPaths::Get()).GetUserDataDir();
 #ifdef __WINDOWS__
-		dir.AppendDir("Remere's Map Editor");
+		dir.AppendDir("Ruby Map Editor");
 #else
 		dir.AppendDir(".rme");
 #endif
@@ -1373,15 +1373,15 @@ void GUI::SetTitle(wxString title)
 #endif
 #ifdef __EXPERIMENTAL__
 	if(title != "") {
-		g_gui.root->SetTitle(title << " - Remere's Map Editor BETA" << TITLE_APPEND);
+		g_gui.root->SetTitle(title << " - Ruby Map Editor BETA" << TITLE_APPEND);
 	} else {
-		g_gui.root->SetTitle(wxString("Remere's Map Editor BETA") << TITLE_APPEND);
+		g_gui.root->SetTitle(wxString("Ruby Map Editor BETA") << TITLE_APPEND);
 	}
 #else
 	if(!title.empty()) {
-		g_gui.root->SetTitle(title << " - Remere's Map Editor" << TITLE_APPEND);
+		g_gui.root->SetTitle(title << " - Ruby Map Editor" << TITLE_APPEND);
 	} else {
-		g_gui.root->SetTitle(wxString("Remere's Map Editor") << TITLE_APPEND);
+		g_gui.root->SetTitle(wxString("Ruby Map Editor") << TITLE_APPEND);
 	}
 #endif
 }
