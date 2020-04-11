@@ -560,10 +560,10 @@ void MapCanvas::OnMouseLeftDoubleClick(wxMouseEvent& event)
 			else if(new_tile->creature && g_settings.getInteger(Config::SHOW_CREATURES))
 				w = newd OldPropertiesWindow(g_gui.root, &editor.map, new_tile, new_tile->creature);
 			else if(Item* item = new_tile->getTopItem()) {
-				if(editor.map.getVersion().otbm >= MAP_OTBM_4)
+				//if(editor.map.getVersion().otbm >= MAP_OTBM_4)
 					w = newd PropertiesWindow(g_gui.root, &editor.map, new_tile, item);
-				else
-					w = newd OldPropertiesWindow(g_gui.root, &editor.map, new_tile, item);
+				//else
+				//	w = newd OldPropertiesWindow(g_gui.root, &editor.map, new_tile, item);
 			} else
 				return;
 
@@ -2111,10 +2111,10 @@ void MapCanvas::OnProperties(wxCommandEvent& WXUNUSED(event))
 		}
 
 		if(item) {
-			if(editor.map.getVersion().otbm >= MAP_OTBM_4)
+			//if(editor.map.getVersion().otbm >= MAP_OTBM_4)
 				w = newd PropertiesWindow(g_gui.root, &editor.map, new_tile, item);
-			else
-				w = newd OldPropertiesWindow(g_gui.root, &editor.map, new_tile, item);
+			//else
+			//	w = newd OldPropertiesWindow(g_gui.root, &editor.map, new_tile, item);
 		}
 		else
 			return;

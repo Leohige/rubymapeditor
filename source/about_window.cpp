@@ -165,7 +165,7 @@ AboutWindow::AboutWindow(wxWindow* parent) :
 {
 	wxString about;
 
-	about << "This is an OpenTibia Map Editor created by Remere.\n";
+	about << "Ruby Map Editor\n";
 	about << "Version " << __W_RME_VERSION__ << " for ";
 	about <<
 #ifdef __WINDOWS__
@@ -178,6 +178,8 @@ AboutWindow::AboutWindow(wxWindow* parent) :
 	"Unsupported OS";
 #endif
 	about << "\n\n";
+
+	about << "Based in Remere's Map Editor created by Remere.\n";
 
 	about << "Using " << wxVERSION_STRING << " interface\n";
 	about << "OpenGL version " << wxString((char*)glGetString(GL_VERSION), wxConvUTF8) << "\n";

@@ -43,7 +43,7 @@
 #include <GL/glut.h>
 #endif
 
-#include "../brushes/icon/ruby_icon.xpm"
+#include "../brushes/icon/rme_icon.xpm"
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
 	EVT_CLOSE(MainFrame::OnExit)
@@ -177,7 +177,7 @@ bool Application::OnInit()
 	// Load palette
 	g_gui.LoadPerspective();
 
-    wxIcon icon(ruby_icon);
+    wxIcon icon(rme_icon);
     g_gui.root->SetIcon(icon);
 
     if (fileToOpen != wxEmptyString) {

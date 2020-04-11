@@ -1,5 +1,5 @@
 /* XPM */
-static const char *ruby_icon[] = {
+static const char *rme_icon[] = {
 /* columns rows colors chars-per-pixel */
 "48 48 103 2 ",
 "   c None",
