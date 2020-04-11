@@ -4,7 +4,7 @@
 	description="Walls and railing extension"
 	client="8.00;8.10;8.20 - 8.31">
 
-	<brush name="jungle stone wall" type="wall" server_lookid="3458">
+	<brush name="jungle stone wall" type="wall" lookid="3458">
 		<wall type="horizontal">
 			<item id="3458" chance="500"/>
 			<item id="3457" chance="100"/>
@@ -23,7 +23,7 @@
 		</wall>
 	</brush>
 
-	<brush name="jungle stone wall ornamented" type="wall" server_lookid="3454">
+	<brush name="jungle stone wall ornamented" type="wall" lookid="3454">
 		<wall type="horizontal">
 			<item id="3454" chance="500"/>
 			<item id="3470" chance="100"/>
@@ -42,7 +42,7 @@
 		</wall>
 	</brush>
 
-	<brush name="bone wall" type="wall" server_lookid="6396">
+	<brush name="bone wall" type="wall" lookid="6396">
 		<wall type="horizontal">
 			<item id="6396" chance="500"/>
 			<item id="6398" chance="100"/>
@@ -68,7 +68,7 @@
 		</wall>
 	</brush>
 
-	<brush name="bamboo wall" type="wall" server_lookid="3424">
+	<brush name="bamboo wall" type="wall" lookid="3424">
 		<wall type="horizontal">
 			<item id="3424" chance="500"/>
 			<item id="3426" chance="100"/>
@@ -107,7 +107,7 @@
 		</wall>
 	</brush>
 
-	<brush name="marble railing" type="wall" server_lookid="1582">
+	<brush name="marble railing" type="wall" lookid="1582">
 		<wall type="horizontal">
 			<item id="1582" chance="500"/>
 		</wall>
@@ -122,7 +122,7 @@
 		</wall>
 	</brush>
 
-	<brush name="ornamented marble railing" type="wall" server_lookid="1583">
+	<brush name="ornamented marble railing" type="wall" lookid="1583">
 		<wall type="horizontal">
 			<item id="1583" chance="500"/>
 		</wall>
@@ -137,7 +137,7 @@
 		</wall>
 	</brush>
 
-	<brush name="pillared marble railing" type="wall" server_lookid="1590">
+	<brush name="pillared marble railing" type="wall" lookid="1590">
 		<wall type="horizontal">
 			<item id="1590" chance="500"/>
 		</wall>
@@ -152,7 +152,7 @@
 		</wall>
 	</brush>
 
-	<brush name="stone railing" type="wall" server_lookid="1524">
+	<brush name="stone railing" type="wall" lookid="1524">
 		<wall type="horizontal">
 			<item id="1524" chance="500"/>
 		</wall>
@@ -167,7 +167,7 @@
 		</wall>
 	</brush>
 
-	<brush name="metal wall" type="wall" server_lookid="1090">
+	<brush name="metal wall" type="wall" lookid="1090">
 		<wall type="horizontal">
 			<item id="1090" chance="500"/>
 			<item id="1092" chance="100"/>
@@ -186,7 +186,7 @@
 		</wall>
 	</brush>
 
-	<brush name="ornamented sandstone railing" type="wall" server_lookid="1570">
+	<brush name="ornamented sandstone railing" type="wall" lookid="1570">
 		<wall type="horizontal">
 			<item id="1570" chance="500"/>
 		</wall>
@@ -201,7 +201,7 @@
 		</wall>
 	</brush>
 
-	<brush name="sandstone railing" type="wall" server_lookid="1562">
+	<brush name="sandstone railing" type="wall" lookid="1562">
 		<wall type="horizontal">
 			<item id="1562" chance="500"/>
 		</wall>
@@ -216,7 +216,7 @@
 		</wall>
 	</brush>
 
-	<brush name="jungle stone railing" type="wall" server_lookid="3481">
+	<brush name="jungle stone railing" type="wall" lookid="3481">
 		<wall type="horizontal">
 			<item id="3481" chance="500"/>
 		</wall>
@@ -231,7 +231,7 @@
 		</wall>
 	</brush>
 
-	<brush name="grass wall" type="wall" server_lookid="3497">
+	<brush name="grass wall" type="wall" lookid="3497">
 		<wall type="horizontal">
 			<item id="3497" chance="500"/>
 			<item id="3498" chance="100"/>
@@ -250,7 +250,7 @@
 		</wall>
 	</brush>
 
-	<brush name="thin bamboo wall" type="wall" server_lookid="3795">
+	<brush name="thin bamboo wall" type="wall" lookid="3795">
 		<wall type="horizontal">
 			<item id="3795" chance="500"/>
 		</wall>
@@ -265,7 +265,7 @@
 		</wall>
 	</brush>
 
-	<brush name="paravent wall" type="wall" server_lookid="1171">
+	<brush name="paravent wall" type="wall" lookid="1171">
 		<wall type="horizontal">
 			<item id="1171" chance="500"/>
 		</wall>
@@ -280,7 +280,7 @@
 		</wall>
 	</brush>
 
-	<brush name="fiery wall" type="wall" server_lookid="1197">
+	<brush name="fiery wall" type="wall" lookid="1197">
 		<wall type="horizontal">
 			<item id="1197" chance="500"/>
 			<item id="1199" chance="100"/>

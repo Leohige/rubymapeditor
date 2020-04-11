@@ -4,7 +4,7 @@
 	description="Adds the missing beds to the editor."
 	client="8.10;8.20 - 8.31">
 
-	<brush name="pirate statue" type="doodad" server_lookid="5671" draggable="true" on_blocking="true" thickness="10/10">
+	<brush name="pirate statue" type="doodad" lookid="5671" draggable="true" on_blocking="true" thickness="10/10">
 		<alternate> <item id="5671" chance="30"/> </alternate> -- south --
 		<alternate> <item id="5674" chance="30"/> </alternate> -- east --
 		<alternate> <item id="5673" chance="30"/> </alternate> -- north --
@@ -17,7 +17,7 @@
 		</doodad>
 	</tileset>
 
-	<brush name="cane stufts" type="doodad" server_lookid="5471">
+	<brush name="cane stufts" type="doodad" lookid="5471">
 		<item id="5463" chance="10"/>
 		<item id="5464" chance="10"/>
 		<item id="5466" chance="10"/>
@@ -30,7 +30,7 @@
 		</doodad>
 	</tileset>
 
-	<brush name="female golden bed" type="doodad" server_lookid="7795" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="female golden bed" type="doodad" lookid="7795" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -55,7 +55,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="golden bed" type="doodad" server_lookid="7819" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="golden bed" type="doodad" lookid="7819" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -80,7 +80,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="male golden bed" type="doodad" server_lookid="7795" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="male golden bed" type="doodad" lookid="7795" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -105,7 +105,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="male green bed" type="doodad" server_lookid="7787" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="male green bed" type="doodad" lookid="7787" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -130,7 +130,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="female green bed" type="doodad" server_lookid="7799" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="female green bed" type="doodad" lookid="7799" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -155,7 +155,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="green bed" type="doodad" server_lookid="7811" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="green bed" type="doodad" lookid="7811" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -180,7 +180,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="female red bed" type="doodad" server_lookid="7803" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="female red bed" type="doodad" lookid="7803" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -205,7 +205,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="male red bed" type="doodad" server_lookid="7791" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="male red bed" type="doodad" lookid="7791" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -230,7 +230,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="red bed" type="doodad" server_lookid="7815" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="red bed" type="doodad" lookid="7815" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -255,7 +255,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="female hay bed" type="doodad" server_lookid="7841" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="female hay bed" type="doodad" lookid="7841" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -280,7 +280,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="female bed" type="doodad" server_lookid="7778" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="female bed" type="doodad" lookid="7778" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 		-- south --
 			<composite chance="10">
@@ -305,7 +305,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="female cot bed" type="doodad" server_lookid="7781" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="female cot bed" type="doodad" lookid="7781" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">
@@ -330,7 +330,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="female hammock bed" type="doodad" server_lookid="7785" draggable="true" on_blocking="true" thickness="100/100">
+	<brush name="female hammock bed" type="doodad" lookid="7785" draggable="true" on_blocking="true" thickness="100/100">
 		<alternate>
 			-- south --
 			<composite chance="10">

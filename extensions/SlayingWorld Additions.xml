@@ -329,7 +329,7 @@
 
 <!-- Grounds -->
 
-<brush name="New Muddy Sand" type="ground" server_lookid="10445" z-order="3100">
+<brush name="New Muddy Sand" type="ground" lookid="10445" z-order="3100">
 <item id="10445" chance="70"/>
 <item id="10441" chance="70"/>
 <item id="10442" chance="70"/>
@@ -341,16 +341,16 @@
 <border align="outer" id="9001"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Riverbed" type="ground" server_lookid="11077" z-order="3900">
+<brush name="Riverbed" type="ground" lookid="11077" z-order="3900">
 <item id="11077" chance="70"/>
 <border align="outer" id="9002"/>
 </brush>
-<brush name="Rice Pad" type="ground" server_lookid="11030" z-order="4500">
+<brush name="Rice Pad" type="ground" lookid="11030" z-order="4500">
 <item id="11030" chance="70"/>
 <border align="outer" id="9004"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Strange Mud" type="ground" server_lookid="11145" z-order="3001">
+<brush name="Strange Mud" type="ground" lookid="11145" z-order="3001">
 <item id="11145" chance="70"/>
 <item id="11146" chance="5"/>
 <item id="11147" chance="5"/>
@@ -362,7 +362,7 @@
 <border align="outer" id="9003"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Strange Mud II" type="ground" server_lookid="11154" z-order="3002">
+<brush name="Strange Mud II" type="ground" lookid="11154" z-order="3002">
 <item id="11154" chance="70"/>
 <item id="11155" chance="10"/>
 <item id="11156" chance="10"/>
@@ -373,7 +373,7 @@
 <border align="outer" id="9005"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Lizard Figure Flooring" type="ground" server_lookid="10851" z-order="4500">
+<brush name="Lizard Figure Flooring" type="ground" lookid="10851" z-order="4500">
 <item id="10846" chance="95"/>
 <item id="10847" chance="3"/>
 <item id="10848" chance="3"/>
@@ -388,22 +388,22 @@
 <border align="outer" id="9006"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Acid" type="ground" server_lookid="11548" z-order="3900">
+<brush name="Acid" type="ground" lookid="11548" z-order="3900">
 <item id="11548" chance="70"/>
 <border align="outer" id="9014"/>
 </brush>
-<brush name="Corrupt Rice Pad" type="ground" server_lookid="11450" z-order="4500">
+<brush name="Corrupt Rice Pad" type="ground" lookid="11450" z-order="4500">
 <item id="11450" chance="70"/>
 <border align="outer" id="9015"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="New Strange Mud" type="ground" server_lookid="11491" z-order="3005">
+<brush name="New Strange Mud" type="ground" lookid="11491" z-order="3005">
 <item id="11490" chance="30"/>
 <item id="11491" chance="30"/>
 <border align="outer" id="9016"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="New Strange Rock" type="ground" server_lookid="11505" z-order="3004">
+<brush name="New Strange Rock" type="ground" lookid="11505" z-order="3004">
 <item id="11505" chance="30"/>
 <item id="11506" chance="30"/>
 <item id="11507" chance="30"/>
@@ -412,7 +412,7 @@
 <border align="outer" id="9017"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Destroyed Blue Lizard Flooring" type="ground" server_lookid="12376" z-order="3101">
+<brush name="Destroyed Blue Lizard Flooring" type="ground" lookid="12376" z-order="3101">
 <item id="12373" chance="70"/>
 <item id="12374" chance="70"/>
 <item id="12375" chance="70"/>
@@ -425,12 +425,12 @@
 <border align="outer" id="9007"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Lizard Roof" type="ground" server_lookid="10884" z-order="9000">
+<brush name="Lizard Roof" type="ground" lookid="10884" z-order="9000">
 	<item id="10884" chance="100"/>
 	<border align="outer" to="none" id="9008"/>
 	<border align="outer" id="9008"/>
 </brush>
-<brush name="Lizard Stone Flooring new" type="ground" server_lookid="10766" z-order="9000">
+<brush name="Lizard Stone Flooring new" type="ground" lookid="10766" z-order="9000">
 	<item id="10766" chance="70"/>
 	<item id="10767" chance="70"/>
 	<item id="10768" chance="70"/>
@@ -440,17 +440,17 @@
 	<item id="10773" chance="70"/>
 	<item id="10774" chance="70"/>
 </brush>
-<brush name="Weird Red Figure Flooring" type="ground" server_lookid="12115" z-order="9000">
+<brush name="Weird Red Figure Flooring" type="ground" lookid="12115" z-order="9000">
 	<item id="12115" chance="70"/>
 	<item id="12116" chance="70"/>
 	<item id="12117" chance="70"/>
 	<item id="12118" chance="70"/>
 	<item id="12119" chance="70"/>
 </brush>
-<brush name="Weird Dark Figure Flooring" type="ground" server_lookid="12120" z-order="9000">
+<brush name="Weird Dark Figure Flooring" type="ground" lookid="12120" z-order="9000">
 	<item id="12120" chance="70"/>
 </brush>
-<brush name="dirt mountain" type="ground" server_lookid="7976" z-order="9900">
+<brush name="dirt mountain" type="ground" lookid="7976" z-order="9900">
 	<item id="8133" chance="1"/>
 		
 	<border align="inner" to="none" id="9010"/>
@@ -459,24 +459,24 @@
 	<border align="outer" id="9011"/>
 	<optional id="9012"/>
 </brush>
-<brush name="New Pinkish Sand" type="ground" server_lookid="10637" z-order="3103">
+<brush name="New Pinkish Sand" type="ground" lookid="10637" z-order="3103">
 <item id="10637" chance="70"/>
 <border align="outer" id="9013"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Brown Strange Mud" type="ground" server_lookid="11561" z-order="3105">
+<brush name="Brown Strange Mud" type="ground" lookid="11561" z-order="3105">
 <item id="11561" chance="70"/>
 <border align="outer" id="9018"/>
 <border align="inner" to="none" id="1"/>
 <optional id="9019"/>
 </brush>
-<brush name="Strange Black Mud" type="ground" server_lookid="11504" z-order="3106">
+<brush name="Strange Black Mud" type="ground" lookid="11504" z-order="3106">
 <item id="11504" chance="70"/>
 <border align="outer" id="9020"/>
 <border align="inner" to="none" id="1"/>
 <optional id="9021"/>
 </brush>
-<brush name="Weird Beige Ground" type="ground" server_lookid="13077" z-order="1">
+<brush name="Weird Beige Ground" type="ground" lookid="13077" z-order="1">
 <item id="13077" chance="70"/>
 <item id="13078" chance="70"/>
 <item id="13079" chance="70"/>
@@ -486,12 +486,12 @@
 <border align="outer" id="9023"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="New Dark Mud" type="ground" server_lookid="12929" z-order="3099">
+<brush name="New Dark Mud" type="ground" lookid="12929" z-order="3099">
 <item id="12929" chance="70"/>
 <border align="outer" id="9022"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Orange Weird Ground" type="ground" server_lookid="13636" z-order="3500">
+<brush name="Orange Weird Ground" type="ground" lookid="13636" z-order="3500">
 <item id="13636" chance="70"/>
 <item id="13637" chance="70"/>
 <item id="13638" chance="70"/>
@@ -503,40 +503,40 @@
 <border align="outer" id="9024"/>
 <border align="inner" to="none" id="1"/>
 </brush>
-<brush name="Yellow Weird Ground" type="ground" server_lookid="13619" z-order="3500">
+<brush name="Yellow Weird Ground" type="ground" lookid="13619" z-order="3500">
 <item id="13619" chance="70"/>
 <border align="outer" id="9025"/>
 <border align="inner" to="none" id="1"/>
 </brush>
 
-<brush name="Wood I" type="ground" server_lookid="11856" z-order="900">
+<brush name="Wood I" type="ground" lookid="11856" z-order="900">
 <item id="11856" chance="70"/>
 </brush>
-<brush name="Wood II" type="ground" server_lookid="11857" z-order="9000">
+<brush name="Wood II" type="ground" lookid="11857" z-order="9000">
 <item id="11857" chance="70"/>
 </brush>
-<brush name="Wood III" type="ground" server_lookid="11858" z-order="9000">
+<brush name="Wood III" type="ground" lookid="11858" z-order="9000">
 <item id="11858" chance="70"/>
 </brush>
-<brush name="Wood IV" type="ground" server_lookid="11859" z-order="9000">
+<brush name="Wood IV" type="ground" lookid="11859" z-order="9000">
 <item id="11859" chance="70"/>
 </brush>
-<brush name="Wood V" type="ground" server_lookid="11860" z-order="900">
+<brush name="Wood V" type="ground" lookid="11860" z-order="900">
 <item id="11860" chance="70"/>
 </brush>
-<brush name="Wood VI" type="ground" server_lookid="11861" z-order="9000">
+<brush name="Wood VI" type="ground" lookid="11861" z-order="9000">
 <item id="11862" chance="70"/>
 </brush>
-<brush name="Wood VII" type="ground" server_lookid="11863" z-order="9000">
+<brush name="Wood VII" type="ground" lookid="11863" z-order="9000">
 <item id="11863" chance="70"/>
 </brush>
-<brush name="Glowing Switch" type="ground" server_lookid="11062" z-order="9100">
+<brush name="Glowing Switch" type="ground" lookid="11062" z-order="9100">
 <item id="11062" chance="100"/>
 </brush>
 
 <!-- Walls -->
 
-<brush name="Lizard Roof Wall" type="wall" server_lookid="10651">
+<brush name="Lizard Roof Wall" type="wall" lookid="10651">
 	<wall type="horizontal">
 		<item id="10651" chance="500"/>
 		<item id="10653" chance="0"/> -- This needs to be here for backwards compability --
@@ -581,7 +581,7 @@
 		<item id="11201" chance="1000"/>
 	</wall>
 </brush>
-<brush name="Lizard Fortess Wall" type="wall" server_lookid="10664"> 
+<brush name="Lizard Fortess Wall" type="wall" lookid="10664"> 
 	<wall type="horizontal"> 
 		<item id="10664" chance="500"/> <!-- Wall horizontal -->
 		<item id="10664" chance="0"/> <!-- Variavel horizontal --> 
@@ -606,7 +606,7 @@
 		<item id="10652" chance="500"/> <!-- Pilar -->
 	</wall> 
 </brush> 
-<brush name="Lizard Wall" type="wall" server_lookid="10663"> 
+<brush name="Lizard Wall" type="wall" lookid="10663"> 
 	<wall type="horizontal"> 
 		<item id="10663" chance="500"/> <!-- Wall horizontal -->
 		<item id="10665" chance="0"/> <!-- Variavel horizontal --> 
@@ -639,7 +639,7 @@
 		<item id="11202" chance="500"/> <!-- Pilar -->
 	</wall> 
 </brush> 
-<brush name="Crystal Lizard Wall" type="wall" server_lookid="11938"> 
+<brush name="Crystal Lizard Wall" type="wall" lookid="11938"> 
 	<wall type="horizontal"> 
 		<item id="11938" chance="500"/> <!-- Wall horizontal -->
 		<item id="11938" chance="0"/> <!-- Variavel horizontal --> 
@@ -666,7 +666,7 @@
 		<item id="11939" chance="500"/> <!-- Pilar -->
 	</wall> 
 </brush> 
-<brush name="Crystal Lizard Railing" type="wall" server_lookid="11946"> 
+<brush name="Crystal Lizard Railing" type="wall" lookid="11946"> 
 	<wall type="horizontal"> 
 		<item id="11946" chance="500"/> <!-- Wall horizontal --> 
 	</wall> 
@@ -680,7 +680,7 @@
 		<item id="12230" chance="500"/> <!-- Pilar -->
 	</wall> 
 </brush> 
-<brush name="Lizard snakeless Railing" type="wall" server_lookid="10691"> 
+<brush name="Lizard snakeless Railing" type="wall" lookid="10691"> 
 	<wall type="horizontal"> 
 		<item id="10691" chance="500"/> <!-- Wall horizontal --> 
 	</wall> 
@@ -694,7 +694,7 @@
 		<item id="10697" chance="500"/> <!-- Pilar -->
 	</wall> 
 </brush> 
-<brush name="Lizard snake Railing" type="wall" server_lookid="10694"> 
+<brush name="Lizard snake Railing" type="wall" lookid="10694"> 
 	<wall type="horizontal"> 
 		<item id="10694" chance="500"/> <!-- Wall horizontal --> 
 	</wall> 
@@ -709,7 +709,7 @@
 	</wall> 
 </brush>
 
-<brush name="Abomination Wall" type="wall" server_lookid="11834"> 
+<brush name="Abomination Wall" type="wall" lookid="11834"> 
 	<wall type="horizontal"> 
 		<item id="11834" chance="500"/> <!-- Wall horizontal -->
 		<item id="11847" chance="500"/> <!-- Variavel horizontal --> 
@@ -744,14 +744,14 @@
 
 <!-- Doodads -->
 
-<brush name="Yellow Grass" type="doodad" server_lookid="10737" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Yellow Grass" type="doodad" lookid="10737" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="10737" chance="10"/>
 	<item id="10738" chance="10"/>
 	<item id="10739" chance="10"/>
 	<item id="10740" chance="10"/>
 	<item id="10741" chance="9"/>
 </brush>
-<brush name="Zao Yellow Flora" type="doodad" server_lookid="10743" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Zao Yellow Flora" type="doodad" lookid="10743" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="10728" chance="10"/>
 	<item id="10729" chance="5"/>
 	<item id="10734" chance="10"/>
@@ -763,11 +763,11 @@
 	<item id="10764" chance="30"/> -- More --
 	<item id="10913" chance="10"/>
 </brush>
-<brush name="Walkable Stones" type="doodad" server_lookid="9728" draggable="true" on_blocking="false" thickness="90/90">
+<brush name="Walkable Stones" type="doodad" lookid="9728" draggable="true" on_blocking="false" thickness="90/90">
 	<item id="9728" chance="10"/>
 	<item id="9727" chance="10"/>
 </brush>
-<brush name="Zao Corrupt Flora" type="doodad" server_lookid="10803" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Zao Corrupt Flora" type="doodad" lookid="10803" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="10802" chance="10"/>
 	<item id="10803" chance="10"/>
 	<item id="10804" chance="10"/>
@@ -812,7 +812,7 @@
 		</tile>
 	</composite>
 </brush>
-<brush name="Zao Alive Flora" type="doodad" server_lookid="10733" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Zao Alive Flora" type="doodad" lookid="10733" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="10730" chance="10"/>
 	<item id="10731" chance="10"/>
 	<item id="10732" chance="10"/>
@@ -824,13 +824,13 @@
 	<item id="10917" chance="10"/>
 	<item id="10912" chance="10"/>
 </brush>
-<brush name="Zao Bridge Finishing" type="doodad" server_lookid="11986" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Zao Bridge Finishing" type="doodad" lookid="11986" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="11986" chance="10"/> </alternate>
 	<alternate> <item id="11987" chance="10"/> </alternate>
 	<alternate> <item id="11988" chance="10"/> </alternate>
 	<alternate> <item id="11989" chance="10"/> </alternate>
 </brush>
-<brush name="Corrupt Rice Plant" type="doodad" server_lookid="11763" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
+<brush name="Corrupt Rice Plant" type="doodad" lookid="11763" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="11763" chance="10"/> </alternate>
 	<alternate> <item id="11764" chance="10"/> </alternate>
 	<alternate> <item id="11765" chance="10"/> </alternate>
@@ -840,7 +840,7 @@
 	<alternate> <item id="11769" chance="10"/> </alternate>
 	<alternate> <item id="11770" chance="10"/> </alternate>
 </brush>
-<brush name="Rice Plant" type="doodad" server_lookid="11043" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
+<brush name="Rice Plant" type="doodad" lookid="11043" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="11043" chance="10"/> </alternate>
 	<alternate> <item id="11044" chance="10"/> </alternate>
 	<alternate> <item id="11045" chance="10"/> </alternate>
@@ -850,44 +850,44 @@
 	<alternate> <item id="11049" chance="10"/> </alternate>
 	<alternate> <item id="11050" chance="10"/> </alternate>
 </brush>
-<brush name="Defensive Constructions I" type="doodad" server_lookid="10880" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
+<brush name="Defensive Constructions I" type="doodad" lookid="10880" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10880" chance="10"/> </alternate>
 	<alternate> <item id="10881" chance="10"/> </alternate>
 </brush>
-<brush name="Defensive Constructions II" type="doodad" server_lookid="10882" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
+<brush name="Defensive Constructions II" type="doodad" lookid="10882" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10882" chance="10"/> </alternate>
 	<alternate> <item id="10883" chance="10"/> </alternate>
 </brush>
-<brush name="Defensive Constructions III" type="doodad" server_lookid="10960" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
+<brush name="Defensive Constructions III" type="doodad" lookid="10960" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10960" chance="10"/> </alternate>
 	<alternate> <item id="10961" chance="10"/> </alternate>
 	<alternate> <item id="10962" chance="10"/> </alternate>
 </brush>
-<brush name="Gray Lizard Table" type="doodad" server_lookid="10967" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
+<brush name="Gray Lizard Table" type="doodad" lookid="10967" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10967" chance="10"/> </alternate>
 	<alternate> <item id="10968" chance="10"/> </alternate>
 </brush>
-<brush name="Red Lizard Table" type="doodad" server_lookid="10969" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
+<brush name="Red Lizard Table" type="doodad" lookid="10969" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10969" chance="10"/> </alternate>
 	<alternate> <item id="10970" chance="10"/> </alternate>
 </brush>
-<brush name="Dragon Banner" type="doodad" server_lookid="10963" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Dragon Banner" type="doodad" lookid="10963" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10963" chance="10"/> </alternate>
 	<alternate> <item id="10964" chance="10"/> </alternate>
 </brush>
-<brush name="Red Banner" type="doodad" server_lookid="10965" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Red Banner" type="doodad" lookid="10965" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10965" chance="10"/> </alternate>
 	<alternate> <item id="10966" chance="10"/> </alternate>
 </brush>
-<brush name="Dragon Light ON" type="doodad" server_lookid="10974" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Dragon Light ON" type="doodad" lookid="10974" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10974" chance="10"/> </alternate>
 	<alternate> <item id="10972" chance="10"/> </alternate>
 </brush>
-<brush name="Dragon Light OFF" type="doodad" server_lookid="10973" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Dragon Light OFF" type="doodad" lookid="10973" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10971" chance="10"/> </alternate>
 	<alternate> <item id="10973" chance="10"/> </alternate>
 </brush>
-<brush name="Lizard Weapon Rack" type="doodad" server_lookid="10979" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
+<brush name="Lizard Weapon Rack" type="doodad" lookid="10979" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10979" chance="10"/> </alternate>
 	<alternate> <item id="10980" chance="10"/> </alternate>
 	<alternate> <item id="10981" chance="10"/> </alternate>
@@ -895,7 +895,7 @@
 	<alternate> <item id="10983" chance="10"/> </alternate>
 	<alternate> <item id="10984" chance="10"/> </alternate>
 </brush>
-<brush name="New Lizard Weapons" type="doodad" server_lookid="12167" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
+<brush name="New Lizard Weapons" type="doodad" lookid="12167" draggable="true" on_blocking="false" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="12167" chance="10"/> </alternate>
 	<alternate> <item id="12166" chance="10"/> </alternate>
 	<alternate> <item id="12168" chance="10"/> </alternate>
@@ -907,7 +907,7 @@
 	<alternate> <item id="12174" chance="10"/> </alternate>
 	<alternate> <item id="12175" chance="10"/> </alternate>
 </brush>
-<brush name="Zao New Corrupt Flora" type="doodad" server_lookid="11633" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Zao New Corrupt Flora" type="doodad" lookid="11633" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="11628" chance="10"/>
 	<item id="11629" chance="10"/>
 	<item id="11630" chance="10"/>
@@ -922,7 +922,7 @@
 	<item id="11639" chance="10"/>
 	<item id="11640" chance="10"/>
 </brush>
-<brush name="Zao New Flora" type="doodad" server_lookid="11935" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Zao New Flora" type="doodad" lookid="11935" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="11931" chance="10"/>
 	<item id="11932" chance="10"/>
 	<item id="11933" chance="10"/>
@@ -937,7 +937,7 @@
 	<item id="11942" chance="10"/>
 	<item id="11943" chance="10"/>
 </brush>
-<brush name="Zao Black Peebles" type="doodad" server_lookid="11599" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Zao Black Peebles" type="doodad" lookid="11599" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="11599" chance="10"/>
 	<item id="11600" chance="10"/>
 	<item id="11601" chance="10"/>
@@ -948,7 +948,7 @@
 	<item id="11606" chance="10"/>
 	<item id="11607" chance="10"/>
 </brush>
-<brush name="Zao Acid Pools" type="doodad" server_lookid="11608" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Zao Acid Pools" type="doodad" lookid="11608" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="11608" chance="10"/>
 	<item id="11609" chance="10"/>
 	<item id="11610" chance="10"/>
@@ -958,27 +958,27 @@
 	<item id="11626" chance="10"/>
 	<item id="11627" chance="10"/>
 </brush>
-<brush name="Green Nature Claws" type="doodad" server_lookid="10873" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Green Nature Claws" type="doodad" lookid="10873" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10873" chance="10"/> </alternate>
 	<alternate> <item id="10872" chance="10"/> </alternate>
 </brush>
-<brush name="Yellow Nature Claws" type="doodad" server_lookid="10874" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Yellow Nature Claws" type="doodad" lookid="10874" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10874" chance="10"/> </alternate>
 	<alternate> <item id="10875" chance="10"/> </alternate>
 </brush>
-<brush name="Yellow Strange Bush" type="doodad" server_lookid="10877" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Yellow Strange Bush" type="doodad" lookid="10877" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10877" chance="10"/> </alternate>
 	<alternate> <item id="10878" chance="10"/> </alternate>
 </brush>
-<brush name="Green Strange Bush" type="doodad" server_lookid="10870" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Green Strange Bush" type="doodad" lookid="10870" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10870" chance="10"/> </alternate>
 	<alternate> <item id="10871" chance="10"/> </alternate>
 </brush>
-<brush name="Dragon Throne" type="doodad" server_lookid="10950" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Dragon Throne" type="doodad" lookid="10950" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10950" chance="10"/> </alternate>
 	<alternate> <item id="10951" chance="10"/> </alternate>
 </brush>
-<brush name="Red Banners" type="doodad" server_lookid="10952" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Red Banners" type="doodad" lookid="10952" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10952" chance="10"/> </alternate>
 	<alternate> <item id="10953" chance="10"/> </alternate>
 	<alternate> <item id="10954" chance="10"/> </alternate>
@@ -986,7 +986,7 @@
 	<alternate> <item id="11010" chance="10"/> </alternate>
 	<alternate> <item id="11012" chance="10"/> </alternate>
 </brush>
-<brush name="Purple Banners" type="doodad" server_lookid="10956" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Purple Banners" type="doodad" lookid="10956" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="10956" chance="10"/> </alternate>
 	<alternate> <item id="10957" chance="10"/> </alternate>
 	<alternate> <item id="10958" chance="10"/> </alternate>
@@ -994,7 +994,7 @@
 	<alternate> <item id="11009" chance="10"/> </alternate>
 	<alternate> <item id="11011" chance="10"/> </alternate>
 </brush>
-<brush name="Dark Banners" type="doodad" server_lookid="11289" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Dark Banners" type="doodad" lookid="11289" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="11289" chance="10"/> </alternate>
 	<alternate> <item id="11290" chance="10"/> </alternate>
 	<alternate> <item id="11291" chance="10"/> </alternate>
@@ -1004,7 +1004,7 @@
 	<alternate> <item id="11297" chance="10"/> </alternate>
 	<alternate> <item id="11298" chance="10"/> </alternate>
 </brush>
-<brush name="Zao Dark Tentacles" type="doodad" server_lookid="11652" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Zao Dark Tentacles" type="doodad" lookid="11652" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="11644" chance="10"/>
 	<item id="11645" chance="10"/>
 	<item id="11646" chance="10"/>
@@ -1016,7 +1016,7 @@
 	<item id="11663" chance="10"/>
 	<item id="11664" chance="10"/>
 </brush>
-<brush name="Bone Piles" type="doodad" server_lookid="11122" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Bone Piles" type="doodad" lookid="11122" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="11122" chance="10"/>
 	<composite chance="10">
 		<tile x="0" y="0">
@@ -1033,45 +1033,45 @@
 		</tile>
 	</composite>
 </brush>
-<brush name="Crane" type="doodad" server_lookid="3979" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Crane" type="doodad" lookid="3979" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="3977" chance="10"/> </alternate>
 	<alternate> <item id="3978" chance="10"/> </alternate>
 	<alternate> <item id="3979" chance="10"/> </alternate>
 	<alternate> <item id="3980" chance="10"/> </alternate>
 </brush>
-<brush name="Burning Skull" type="doodad" server_lookid="5021" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Burning Skull" type="doodad" lookid="5021" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="5020" chance="10"/> </alternate>
 	<alternate> <item id="5021" chance="10"/> </alternate>
 </brush>
-<brush name="Distilling Machine" type="doodad" server_lookid="5469" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Distilling Machine" type="doodad" lookid="5469" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="5469" chance="10"/> </alternate>
 	<alternate> <item id="5470" chance="10"/> </alternate>
 </brush>
-<brush name="Carts" type="doodad" server_lookid="5544" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Carts" type="doodad" lookid="5544" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="5544" chance="10"/> </alternate>
 	<alternate> <item id="5546" chance="10"/> </alternate>
 	<alternate> <item id="5547" chance="10"/> </alternate>
 	<alternate> <item id="5548" chance="10"/> </alternate>
 </brush>
-<brush name="Treasure Chest" type="doodad" server_lookid="5675" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Treasure Chest" type="doodad" lookid="5675" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="5675" chance="10"/> </alternate>
 	<alternate> <item id="5676" chance="10"/> </alternate>
 </brush>
-<brush name="Sharks" type="doodad" server_lookid="5704" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Sharks" type="doodad" lookid="5704" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="5704" chance="10"/>
 	<item id="5738" chance="10"/>
 	<item id="5705" chance="10"/>
 </brush>
-<brush name="Firefly" type="doodad" server_lookid="6495" draggable="true" on_blocking="false" thickness="20/90">
+<brush name="Firefly" type="doodad" lookid="6495" draggable="true" on_blocking="false" thickness="20/90">
 	<item id="6495" chance="10"/>
 	<item id="6491" chance="10"/>
 	<item id="6494" chance="10"/>
 </brush>
-<brush name="Hanging Skeleton" type="doodad" server_lookid="6524" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Hanging Skeleton" type="doodad" lookid="6524" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="6524" chance="10"/> </alternate>
 	<alternate> <item id="6525" chance="10"/> </alternate>
 </brush>
-<brush name="Igloo Base" type="doodad" server_lookid="6753" draggable="true" on_blocking="true" thickness="100/100">
+<brush name="Igloo Base" type="doodad" lookid="6753" draggable="true" on_blocking="true" thickness="100/100">
 	<composite chance="10">
 		<tile x="0" y="0"> <item id="6752"/> </tile>
 		<tile x="0" y="1"> <item id="6751"/> </tile>
@@ -1079,11 +1079,11 @@
 		<tile x="1" y="1"> <item id="6750"/> </tile>
 	</composite>
 </brush>
-<brush name="Barbarian Banner" type="doodad" server_lookid="6793" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Barbarian Banner" type="doodad" lookid="6793" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<alternate> <item id="6793" chance="10"/> </alternate>
 	<alternate> <item id="6794" chance="10"/> </alternate>
 </brush>
-<brush name="Geyser" type="doodad" server_lookid="7106" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
+<brush name="Geyser" type="doodad" lookid="7106" draggable="true" on_blocking="true" on_duplicate="true" thickness="100/100">
 	<item id="7106" chance="10"/>
 	<composite chance="10">
 		<tile x="0" y="0"> <item id="7106"/> </tile>

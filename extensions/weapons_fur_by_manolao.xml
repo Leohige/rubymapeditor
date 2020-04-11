@@ -1,5 +1,5 @@
 <materialsextension name="Fur Walls, Weapon doodads" author="Manolo" description="Adds Fur Walls and weapon related doodads to the palette." client="8.00;8.10;8.20 - 8.31"> 
-	<brush name="Fur Wall" type="wall" server_lookid="6774"> 
+	<brush name="Fur Wall" type="wall" lookid="6774"> 
 		<wall type="horizontal"> 
 			<item id="6774" chance="500"/> 
 			<item id="6776" chance="0"/> -- This needs to be here for backwards compability -- 
@@ -45,52 +45,52 @@
 		</terrain> 
 	</tileset>  
 
-	<brush name="Weapon Rack" type="doodad" server_lookid="6110" draggable="true" on_blocking="true" thickness="100/100"> 
+	<brush name="Weapon Rack" type="doodad" lookid="6110" draggable="true" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="6109" chance="10"/> </alternate> 
 		<alternate> <item id="6110" chance="10"/> </alternate> 
 	</brush>
 	
-	<brush name="Armor Rack" type="doodad" server_lookid="6111" draggable="true" on_blocking="true" thickness="100/100"> 
+	<brush name="Armor Rack" type="doodad" lookid="6111" draggable="true" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="6111" chance="10"/> </alternate> 
 		<alternate> <item id="6112" chance="10"/> </alternate> 
 	</brush>
 	
-	<brush name="Empty Weapon Rack" type="doodad" server_lookid="5852" draggable="true" on_blocking="true" thickness="100/100"> 
+	<brush name="Empty Weapon Rack" type="doodad" lookid="5852" draggable="true" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="5852" chance="10"/> </alternate> 
 		<alternate> <item id="5853" chance="10"/> </alternate> 
 	</brush>
 	
-	<brush name="Lance" type="doodad" server_lookid="5854" draggable="false" on_blocking="true" thickness="100/100"> 
+	<brush name="Lance" type="doodad" lookid="5854" draggable="false" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="5854" chance="10"/> </alternate> 
 		<alternate> <item id="5855" chance="10"/> </alternate> 
 	</brush>
 	
-	<brush name="sword" type="doodad" server_lookid="5856" draggable="false" on_blocking="true" thickness="100/100"> 
+	<brush name="sword" type="doodad" lookid="5856" draggable="false" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="5856" chance="10"/> </alternate> 
 		<alternate> <item id="5857" chance="10"/> </alternate> 
 	</brush>
 	
-	<brush name="Empty Armor Rack" type="doodad" server_lookid="5860" draggable="true" on_blocking="true" thickness="100/100"> 
+	<brush name="Empty Armor Rack" type="doodad" lookid="5860" draggable="true" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="5860" chance="10"/> </alternate> 
 		<alternate> <item id="5861" chance="10"/> </alternate> 
 	</brush> 
 	
-	<brush name="Armor" type="doodad" server_lookid="5860" draggable="true" on_blocking="true" thickness="100/100"> 
+	<brush name="Armor" type="doodad" lookid="5860" draggable="true" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="5862" chance="10"/> </alternate> 
 		<alternate> <item id="5863" chance="10"/> </alternate> 
 	</brush>
 	
-	<brush name="shield" type="doodad" server_lookid="7234" draggable="true" on_blocking="true" thickness="100/100"> 
+	<brush name="shield" type="doodad" lookid="7234" draggable="true" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="7234" chance="10"/> </alternate> 
 		<alternate> <item id="7235" chance="10"/> </alternate> 
 	</brush>
 	
-	<brush name="red shield" type="doodad" server_lookid="7238" draggable="true" on_blocking="true" thickness="100/100"> 
+	<brush name="red shield" type="doodad" lookid="7238" draggable="true" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="7238" chance="10"/> </alternate> 
 		<alternate> <item id="7239" chance="10"/> </alternate> 
 	</brush>
 	
-	<brush name="blue shield" type="doodad" server_lookid="7240" draggable="true" on_blocking="true" thickness="100/100"> 
+	<brush name="blue shield" type="doodad" lookid="7240" draggable="true" on_blocking="true" thickness="100/100"> 
 		<alternate> <item id="7240" chance="10"/> </alternate> 
 		<alternate> <item id="7241" chance="10"/> </alternate> 
 	</brush>

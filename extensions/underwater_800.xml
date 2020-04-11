@@ -14,7 +14,7 @@
 		<borderitem edge="dse" item="5431"/>  
 	</border>  
 
-	<brush name="Shallow water" type="border" server_lookid="5410" z-order="3000">  
+	<brush name="Shallow water" type="border" lookid="5410" z-order="3000">  
 		<item id="5405" chance="25"/>  
 		<item id="5406" chance="25"/>  
 		<item id="5407" chance="25"/>  
@@ -25,7 +25,7 @@
 		<border align="outer" id="58900"/>  
 	</brush> 
 	
-	<brush name="steering wheel" type="doodad" server_lookid="5441" draggable="true" on_blocking="true" thickness="100/100">  
+	<brush name="steering wheel" type="doodad" lookid="5441" draggable="true" on_blocking="true" thickness="100/100">  
 		<alternate> -- south --  
 			<composite chance="10">  
 				<tile x="0" y="0"> <item id="5426"/> </tile>  
@@ -40,7 +40,7 @@
 		</alternate>  
 	</brush>  
 	
-	<brush name="damaged mast2" type="table" server_lookid="5445">  
+	<brush name="damaged mast2" type="table" lookid="5445">  
 		<table align="north"> <item id="5445" chance="10"/> </table>  
 		<table align="vertical"> <item id="5445" chance="10"/> </table>  
 		<table align="south"> <item id="5445" chance="10"/> </table>  
@@ -56,11 +56,11 @@
 		</terrain>  
 	</tileset>  
 
-	<brush name="water wooden flooring" type="border" server_lookid="5743" z-order="1">  
+	<brush name="water wooden flooring" type="border" lookid="5743" z-order="1">  
 		<item id="5743" chance="100"/>  
 	</brush>  
 	
-	<brush name="coral reef" type="doodad" server_lookid="5413" draggable="true" on_blocking="false" thickness="12/100">  
+	<brush name="coral reef" type="doodad" lookid="5413" draggable="true" on_blocking="false" thickness="12/100">  
 		<item id="5413" chance="10"/>  
 		<item id="5414" chance="10"/>  
 		<item id="5415" chance="10"/>  
@@ -69,17 +69,17 @@
 		<item id="5423" chance="10"/>  
 	</brush>  
 
-	<brush name="fishbone" type="doodad" server_lookid="2226" draggable="true" on_blocking="false" thickness="12/100">  
+	<brush name="fishbone" type="doodad" lookid="2226" draggable="true" on_blocking="false" thickness="12/100">  
 	    <item id="2226" chance="20"/>  
 	    <item id="2240" chance="20"/>  
 	</brush>  
 	
-	<brush name="bubbles" type="doodad" server_lookid="5419" draggable="true" on_blocking="false" thickness="12/100">  
+	<brush name="bubbles" type="doodad" lookid="5419" draggable="true" on_blocking="false" thickness="12/100">  
 	    <item id="5419" chance="20"/>  
 	    <item id="5420" chance="20"/>  
 	</brush>
 	
-	<brush name="sea details" type="doodad" server_lookid="5417" draggable="true" on_blocking="false" thickness="12/100">  
+	<brush name="sea details" type="doodad" lookid="5417" draggable="true" on_blocking="false" thickness="12/100">  
 	    <item id="5417" chance="20"/>  
 	    <item id="5418" chance="20"/>  
 	    <item id="5554" chance="20"/>      
@@ -89,17 +89,17 @@
 	    <item id="5682" chance="20"/>  
 	</brush>  
 	
-	<brush name="sea rocks" type="doodad" server_lookid="5411" draggable="true" on_blocking="false" thickness="12/100">  
+	<brush name="sea rocks" type="doodad" lookid="5411" draggable="true" on_blocking="false" thickness="12/100">  
 	    <item id="5411" chance="20"/>  
 	    <item id="5412" chance="20"/>  
 	</brush>  
 	
-	<brush name="damaged mast" type="doodad" server_lookid="5442" draggable="true" on_blocking="true" thickness="10/10">  
+	<brush name="damaged mast" type="doodad" lookid="5442" draggable="true" on_blocking="true" thickness="10/10">  
 		<alternate> <item id="5442" chance="30"/> </alternate> -- south --  
 		<alternate> <item id="5443" chance="30"/> </alternate> -- east --  
 	</brush>  
 
-	<brush name="damaged ship" type="wall" server_lookid="5452">  
+	<brush name="damaged ship" type="wall" lookid="5452">  
 		<wall type="horizontal">  
 			<item id="5452" chance="1"/>  
 			<item id="5452" chance="0"/>  
@@ -121,7 +121,7 @@
 		</wall>  
 	</brush>
 
-	<brush name="ship railling" type="wall" server_lookid="5454">  
+	<brush name="ship railling" type="wall" lookid="5454">  
 		<wall type="horizontal">  
 			<item id="5454" chance="1"/>  
 			<item id="5454" chance="0"/>  
@@ -143,7 +143,7 @@
 		</wall>  
 	</brush>
 	
-	<brush name="ship ruins" type="doodad" server_lookid="5448" draggable="true" on_blocking="false" thickness="12/100">  
+	<brush name="ship ruins" type="doodad" lookid="5448" draggable="true" on_blocking="false" thickness="12/100">  
 	    <item id="5448" chance="20"/>  
 	    <item id="5444" chance="20"/>  
 	    <item id="5447" chance="20"/>  

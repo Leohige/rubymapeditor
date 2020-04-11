@@ -1,12 +1,12 @@
 <materialsextension name="Jungle Doodads" author="Remere" description="This adds most of the missing Jungle doodads" client="8.00;8.10;8.20 - 8.31"> 
 
-    <brush name="jungle trees" type="doodad" server_lookid="4008" draggable="true" on_blocking="false" thickness="11/90"> 
+    <brush name="jungle trees" type="doodad" lookid="4008" draggable="true" on_blocking="false" thickness="11/90"> 
         <item id="4007" chance="10"/> 
         <item id="4008" chance="10"/> 
         <item id="4009" chance="10"/> 
     </brush>
 	
-    <brush name="jungle bushes" type="doodad" server_lookid="4010" draggable="true" on_blocking="false" thickness="11/90"> 
+    <brush name="jungle bushes" type="doodad" lookid="4010" draggable="true" on_blocking="false" thickness="11/90"> 
         <item id="4010" chance="10"/> 
         <item id="4011" chance="10"/> 
         <item id="4012" chance="10"/> 
@@ -18,7 +18,7 @@
         <item id="4135" chance="10"/> 
     </brush>
     
-    <brush name="jungle umbrellas" type="doodad" server_lookid="4019" draggable="true" on_blocking="false" thickness="11/90"> 
+    <brush name="jungle umbrellas" type="doodad" lookid="4019" draggable="true" on_blocking="false" thickness="11/90"> 
         <item id="4019" chance="10"/> 
         <item id="4020" chance="10"/> 
         <item id="4021" chance="10"/> 
@@ -27,7 +27,7 @@
         <item id="4024" chance="10"/> 
     </brush> 
     
-    <brush name="jungle giant flowers" type="doodad" server_lookid="4016" draggable="true" on_blocking="false" thickness="11/90"> 
+    <brush name="jungle giant flowers" type="doodad" lookid="4016" draggable="true" on_blocking="false" thickness="11/90"> 
         <item id="4016" chance="10"/> 
         <item id="4136" chance="10"/> 
         <item id="4137" chance="10"/> 
@@ -53,19 +53,19 @@
         <item id="4185" chance="10"/> 
     </brush>
 	
-    <brush name="pearl flowers" type="doodad" server_lookid="4165" draggable="true" on_blocking="false" thickness="11/90"> 
+    <brush name="pearl flowers" type="doodad" lookid="4165" draggable="true" on_blocking="false" thickness="11/90"> 
         <item id="4164" chance="10"/> 
         <item id="4165" chance="10"/> 
         <item id="4166" chance="10"/> 
 	</brush>
 	
-    <brush name="jungle flowers" type="doodad" server_lookid="4138" draggable="true" on_blocking="false" thickness="11/90"> 
+    <brush name="jungle flowers" type="doodad" lookid="4138" draggable="true" on_blocking="false" thickness="11/90"> 
         <item id="4138" chance="10"/> 
         <item id="4139" chance="10"/> 
         <item id="4155" chance="10"/> 
 	</brush>
 	
-    <brush name="giant ball mushrooms" type="doodad" server_lookid="4184" draggable="true" on_blocking="false" thickness="11/90"> 
+    <brush name="giant ball mushrooms" type="doodad" lookid="4184" draggable="true" on_blocking="false" thickness="11/90"> 
         <item id="4184" chance="10"/>
 	</brush>
 	
@@ -75,7 +75,7 @@
         <item id="4183" chance="10"/>
 	</brush>
 	
-	<brush name="skinny branches" type="wall" server_lookid="4047">
+	<brush name="skinny branches" type="wall" lookid="4047">
 		<wall type="horizontal">         <item id="4042" chance="1"/> </wall>
 		<wall type="vertical">           <item id="4048" chance="1"/> </wall>
 		<wall type="pole">               <item id="4047" chance="1"/> </wall>
@@ -129,7 +129,7 @@
 		</wall>
 	</brush>
 	
-    <brush name="thick tree" type="doodad" server_lookid="4037" draggable="true" on_blocking="false" thickness="7/90"> 
+    <brush name="thick tree" type="doodad" lookid="4037" draggable="true" on_blocking="false" thickness="7/90"> 
 		<composite chance="10">
 			<tile x="0" y="0"> <item id="4037"/> </tile>
 			<tile x="1" y="0"> <item id="4039"/> </tile>
@@ -138,7 +138,7 @@
 		</composite>
 	</brush>
 	
-    <brush name="thick tree with roots" type="doodad" server_lookid="4221" draggable="true" on_blocking="false" thickness="7/90"> 
+    <brush name="thick tree with roots" type="doodad" lookid="4221" draggable="true" on_blocking="false" thickness="7/90"> 
 		<composite chance="10">
 			<tile x="0" y="0"> <item id="4037"/> </tile>
 			<tile x="1" y="0"> <item id="4220"/> </tile>
@@ -153,7 +153,7 @@
 		</composite>
 	</brush>
 	
-    <brush name="thick tree with vines" type="doodad" server_lookid="4068" draggable="true" on_blocking="false" thickness="7/90"> 
+    <brush name="thick tree with vines" type="doodad" lookid="4068" draggable="true" on_blocking="false" thickness="7/90"> 
 		<composite chance="10">
 			<tile x="0" y="0"> <item id="4037"/> <item id="4068"/> </tile>
 			<tile x="1" y="0"> <item id="4039"/> <item id="4069"/> </tile>
@@ -162,7 +162,7 @@
 		</composite>
 	</brush>
 	
-    <brush name="thick tree with roots and vines" type="doodad" server_lookid="4072" draggable="true" on_blocking="false" thickness="7/90"> 
+    <brush name="thick tree with roots and vines" type="doodad" lookid="4072" draggable="true" on_blocking="false" thickness="7/90"> 
 		<composite chance="10">
 			<tile x="0" y="0"> <item id="4037"/> <item id="4068"/> </tile>
 			<tile x="1" y="0"> <item id="4220"/> <item id="4069"/> </tile>
@@ -177,7 +177,7 @@
 		</composite>
 	</brush>
 
-    <brush name="cactus" type="doodad" server_lookid="2723" draggable="true" on_blocking="false" thickness="11/90"> 
+    <brush name="cactus" type="doodad" lookid="2723" draggable="true" on_blocking="false" thickness="11/90"> 
         <item id="2723" chance="10"/> 
         <item id="2727" chance="10"/> 
         <item id="2732" chance="10"/> 
@@ -185,7 +185,7 @@
         <item id="2736" chance="10"/> 
     </brush>
 
-    <brush name="spiky cactus" type="doodad" server_lookid="2728" draggable="true" on_blocking="false" thickness="11/90"> 
+    <brush name="spiky cactus" type="doodad" lookid="2728" draggable="true" on_blocking="false" thickness="11/90"> 
         <item id="2724" chance="10"/> 
         <item id="2728" chance="10"/> 
         <item id="2729" chance="10"/> 

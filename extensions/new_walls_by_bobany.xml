@@ -4,7 +4,7 @@
 	description="Additional walls"
 	client="8.10;8.20 - 8.31">
 
-	<brush name="frozen wall" type="wall" server_lookid="6740">
+	<brush name="frozen wall" type="wall" lookid="6740">
 		<wall type="horizontal">
 			<item id="6740" chance="500"/>
 			<door id="7033" type="normal" open="false"/>
@@ -41,7 +41,7 @@
 		</wall>
 	</brush>
 
-	<brush name="wooden railing" type="wall" server_lookid="5315">
+	<brush name="wooden railing" type="wall" lookid="5315">
 		<wall type="horizontal">
 			<item id="5315" chance="500"/>
 			<door id="5318" type="normal" open="false"/>
@@ -61,7 +61,7 @@
 	</brush>
 
 
-	<brush name="ice railing" type="wall" server_lookid="6956">
+	<brush name="ice railing" type="wall" lookid="6956">
 		<wall type="horizontal">
 			<item id="6956" chance="500"/>
 		</wall>
@@ -76,7 +76,7 @@
 		</wall>
 	</brush>
 
-	<brush name="white tent wall" type="wall" server_lookid="7617">
+	<brush name="white tent wall" type="wall" lookid="7617">
 		<wall type="horizontal">
 			<item id="7593" chance="500"/>
 		</wall>
@@ -91,7 +91,7 @@
 		</wall>
 	</brush>
 
-	<brush name="colored tent wall" type="wall" server_lookid="7619">
+	<brush name="colored tent wall" type="wall" lookid="7619">
 		<wall type="horizontal">
 			<item id="7595" chance="500"/>
 		</wall>
@@ -108,7 +108,7 @@
 		<friend name="white tent wall" redirect="true"/>
 	</brush>
 
-	<brush name="fishes" type="doodad" server_lookid="6984" draggable="true" on_blocking="true" thickness="60/100">
+	<brush name="fishes" type="doodad" lookid="6984" draggable="true" on_blocking="true" thickness="60/100">
 		<alternate>
 			<item id="6984" chance="10"/> 
 		</alternate>
@@ -117,7 +117,7 @@
 		</alternate>
 	</brush>
 
-	<brush name="thorn bush" type="wall" server_lookid="3996">
+	<brush name="thorn bush" type="wall" lookid="3996">
 		<wall type="pole">               
 			<item id="3999" chance="1"/>
 		</wall>

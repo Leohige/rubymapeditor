@@ -88,7 +88,7 @@
 		<borderitem edge="csw" item="5250"/>
 	</border>
     
-	<brush name="red striped marquee horizontal" type="ground" server_lookid="5160" z-order="15501">
+	<brush name="red striped marquee horizontal" type="ground" lookid="5160" z-order="15501">
 		<item id="5160" chance="1"/>
 		<item id="5159" chance="0"/>
 		
@@ -96,7 +96,7 @@
 		<border align="outer" id="88400" to="none"/>
 	</brush>
     
-	<brush name="red striped marquee vertical" type="ground" server_lookid="5189" z-order="15501">
+	<brush name="red striped marquee vertical" type="ground" lookid="5189" z-order="15501">
 		<item id="5189" chance="1"/>
 		<item id="5186" chance="0"/>
 		
@@ -104,7 +104,7 @@
 		<border align="outer" id="88401" to="none"/>
 	</brush>
     
-	<brush name="yellow striped marquee horizontal" type="ground" server_lookid="5174" z-order="15502">
+	<brush name="yellow striped marquee horizontal" type="ground" lookid="5174" z-order="15502">
 		<item id="5174" chance="1"/>
 		<item id="5177" chance="0"/>
 		
@@ -112,7 +112,7 @@
 		<border align="outer" id="88402" to="none"/>
 	</brush>
     
-	<brush name="yellow striped marquee vertical" type="ground" server_lookid="5200" z-order="15502">
+	<brush name="yellow striped marquee vertical" type="ground" lookid="5200" z-order="15502">
 		<item id="5200" chance="1"/>
 		<item id="5199" chance="0"/>
 		
@@ -120,7 +120,7 @@
 		<border align="outer" id="88403" to="none"/>
 	</brush>
     
-	<brush name="green marquee horizontal" type="ground" server_lookid="5213" z-order="15503">
+	<brush name="green marquee horizontal" type="ground" lookid="5213" z-order="15503">
 		<item id="5213" chance="1"/>
 		<item id="5210" chance="0"/>
 		
@@ -128,7 +128,7 @@
 		<border align="outer" id="88404" to="none"/>
 	</brush>
     
-	<brush name="green marquee vertical" type="ground" server_lookid="5224" z-order="15503">
+	<brush name="green marquee vertical" type="ground" lookid="5224" z-order="15503">
 		<item id="5224" chance="1"/>
 		<item id="5223" chance="0"/>
 		
@@ -136,7 +136,7 @@
 		<border align="outer" id="88405" to="none"/>
 	</brush>
     
-	<brush name="blue marquee horizontal" type="ground" server_lookid="5237" z-order="15504">
+	<brush name="blue marquee horizontal" type="ground" lookid="5237" z-order="15504">
 		<item id="5237" chance="1"/>
 		<item id="5234" chance="0"/>
 		
@@ -144,7 +144,7 @@
 		<border align="outer" id="88406" to="none"/>
 	</brush>
     
-	<brush name="blue marquee vertical" type="ground" server_lookid="5248" z-order="15504">
+	<brush name="blue marquee vertical" type="ground" lookid="5248" z-order="15504">
 		<item id="5248" chance="1"/>
 		<item id="5247" chance="0"/>
 		
