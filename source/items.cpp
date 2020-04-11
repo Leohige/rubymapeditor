@@ -736,9 +736,16 @@ bool ItemDatabase::loadFromYAML(const FileName& datafile, wxString& error, wxArr
 			iType->group = ItemGroup_t(ITEM_GROUP_NONE);
 		}
 
-		iType->pickupable = properties["pickupable"] ? properties["pickupable"].as<bool>() : false;
-		iType->stackable  = properties["stackable"]  ? properties["stackable"].as<bool>()  : false;
-		iType->volume     = properties["volume"]     ? properties["volume"].as<uint32_t>() : 0;
+		iType->name       = attributes["name"]       ? attributes["name"].as<std::string>() : "";
+
+		iType->pickupable = properties["pickupable"] ? properties["pickupable"].as<bool>()  : false;
+		iType->stackable  = properties["stackable"]  ? properties["stackable"].as<bool>()   : false;
+		iType->hookEast   = properties["hook_east"]  ? properties["hook_east"].as<bool>()   : false;
+		iType->hookSouth  = properties["hook_south"] ? properties["hook_south"].as<bool>()  : false;
+		iType->isHangable = properties["hangable"]   ? properties["hangable"].as<bool>()    : false;
+		iType->alwaysOnBottom = properties["on_bottom"] ? properties["on_bottom"].as<bool>() : false;
+
+		iType->volume     = properties["volume"]     ? properties["volume"].as<uint32_t>()  : 0;
 
 		if(iType) {
 			if(items[iType->id]) {
