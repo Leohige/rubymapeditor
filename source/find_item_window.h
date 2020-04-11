@@ -33,8 +33,7 @@ class FindItemDialog : public wxDialog
 {
 public:
 	enum SearchMode {
-		ServerIDs = 0,
-		ClientIDs,
+		IDs = 0,
 		Names,
 		Types,
 		Properties,
