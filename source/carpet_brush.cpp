@@ -33,10 +33,6 @@ bool CarpetBrush::load(pugi::xml_node node, wxArrayString& warnings)
 		look_id = pugi::cast<uint16_t>(attribute.value());
 	}
 
-	if((attribute = node.attribute("server_lookid"))) {
-		look_id = g_items[pugi::cast<uint16_t>(attribute.value())].id;
-	}
-
 	for(pugi::xml_node childNode = node.first_child(); childNode; childNode = childNode.next_sibling()) {
 		if(as_lower_str(childNode.name()) != "carpet") {
 			continue;

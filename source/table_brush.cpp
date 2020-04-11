@@ -28,10 +28,7 @@ TableBrush::~TableBrush()
 
 bool TableBrush::load(pugi::xml_node node, wxArrayString& warnings)
 {
-	look_id = g_items[pugi::cast<uint16_t>(node.attribute("server_lookid").value())].id;
-	if(look_id == 0) {
-		look_id = pugi::cast<uint16_t>(node.attribute("lookid").value());
-	}
+	look_id = pugi::cast<uint16_t>(node.attribute("lookid").value());
 
 	for(pugi::xml_node childNode = node.first_child(); childNode; childNode = childNode.next_sibling()) {
 		if(as_lower_str(childNode.name()) != "table") {
