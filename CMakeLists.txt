@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(rme)
+project(rubymapeditor)
 
 if(NOT CMAKE_BUILD_TYPE)
 	set(CMAKE_BUILD_TYPE RelWithDebInfo)
@@ -32,7 +32,7 @@ find_package(yaml-cpp REQUIRED)
 
 include(${wxWidgets_USE_FILE})
 include(source/CMakeLists.txt)
-add_executable(rme ${rme_H} ${rme_SRC})
+add_executable(rubymapeditor ${rme_H} ${rme_SRC})
 
 include_directories(${Boost_INCLUDE_DIRS} ${LibArchive_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIR} ${GLUT_INCLUDE_DIRS})
-target_link_libraries(rme ${wxWidgets_LIBRARIES} ${Boost_LIBRARIES} ${LibArchive_LIBRARIES} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} yaml-cpp)
+target_link_libraries(rubymapeditor ${wxWidgets_LIBRARIES} ${Boost_LIBRARIES} ${LibArchive_LIBRARIES} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} yaml-cpp)
