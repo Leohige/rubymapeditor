@@ -10,8 +10,8 @@ build-release
 CMakeLists.txt.user*
 
 # RME
-rme
-rme.cfg
+rubymapeditor
+rubymapeditor.cfg
 data/user
 
 # Visual Studio

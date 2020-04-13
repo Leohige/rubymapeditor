@@ -27,14 +27,14 @@ void WelcomeDialog::OnButtonClicked(wxMouseEvent &event) {
     wxPoint clickPoint = event.GetPosition();
     if (clickPoint.x > 0 && clickPoint.x < buttonSize.x && clickPoint.y > 0 && clickPoint.y < buttonSize.x) {
         if (button->GetAction() == wxID_PREFERENCES) {
-            PreferencesWindow preferencesWindow(m_welcomeDialogPanel, true);
+            PreferencesWindow preferencesWindow(m_welcomeDialogPanel);
             preferencesWindow.ShowModal();
         } else {
             wxCommandEvent actionEvent(WELCOME_DIALOG_ACTION);
             if (button->GetAction() == wxID_OPEN) {
                 wxString wildcard = g_settings.getInteger(Config::USE_OTGZ) != 0 ?
-                                    "(*.otbm;*.otgz)|*.otbm;*.otgz" :
-                                    "(*.otbm)|*.otbm|Compressed OpenTibia Binary Map (*.otgz)|*.otgz";
+                                    "(*.rbm;*.rgz)|*.rbm;*.rgz" :
+                                    "(*.rbm)|*.rbm|Compressed Ruby Binary Map (*.rgz)|*.rgz";
                 wxFileDialog fileDialog(this, "Open map file", "", "", wildcard, wxFD_OPEN | wxFD_FILE_MUST_EXIST);
                 if (fileDialog.ShowModal() == wxID_OK) {
                     actionEvent.SetString(fileDialog.GetPath());

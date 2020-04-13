@@ -107,9 +107,6 @@ bool Application::OnInit()
 	mt_seed(time(nullptr));
 	srand(time(nullptr));
 
-	// Discover data directory
-	g_gui.discoverDataDirectory("clients.xml");
-
 	// Tell that we are the real thing
 	wxAppConsole::SetInstance(this);
 	wxArtProvider::Push(new ArtProvider());
@@ -124,7 +121,7 @@ bool Application::OnInit()
 	g_settings.load();
 	FixVersionDiscrapencies();
 	g_gui.LoadHotkeys();
-	ClientVersion::loadVersions();
+	//ClientVersion::loadVersions();
 
 #ifdef _USE_PROCESS_COM
 	m_single_instance_checker = newd wxSingleInstanceChecker; //Instance checker has to stay alive throughout the applications lifetime
@@ -301,12 +298,10 @@ void Application::FixVersionDiscrapencies()
 void Application::Unload()
 {
 	g_gui.CloseAllEditors();
-	g_gui.UnloadVersion();
+	g_gui.UnloadAssets();
 	g_gui.SaveHotkeys();
 	g_gui.SavePerspective();
 	g_gui.root->SaveRecentFiles();
-	ClientVersion::saveVersions();
-	ClientVersion::unloadVersions();
 	g_settings.save(true);
 	g_gui.root = nullptr;
 }
@@ -501,7 +496,7 @@ bool MainFrame::DoQuerySave(bool doclose)
 			if(g_gui.GetCurrentMap().hasFile()) {
 				g_gui.SaveCurrentMap(true);
 			} else {
-				wxFileDialog file(this, "Save...", "", "", "*.otbm", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+				wxFileDialog file(this, "Save...", "", "", "*.rbm", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
 				int32_t result = file.ShowModal();
 				if(result == wxID_OK) {
 					g_gui.SaveCurrentMap(file.GetPath(), true);

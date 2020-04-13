@@ -259,17 +259,16 @@ public:
 	static wxString GetLocalDirectory();
 	static wxString GetExtensionsDirectory();
 
-	void discoverDataDirectory(const wxString& existentFile);
-	wxString getFoundDataDirectory() { return m_dataDirectory; }
+	wxString getFoundDataDirectory() { return ""; }
 
 	// Load/unload a client version (takes care of dialogs aswell)
-	void UnloadVersion();
-	bool LoadVersion(ClientVersionID ver, wxString& error, wxArrayString& warnings, bool force = false);
+	void UnloadAssets();
+	bool LoadVersion(wxString& error, wxArrayString& warnings, bool force = false);
 	// The current version loaded (returns CLIENT_VERSION_NONE if no version is loaded)
 	const ClientVersion& GetCurrentVersion() const;
 	ClientVersionID GetCurrentVersionID() const;
 	// If any version is loaded at all
-	bool IsVersionLoaded() const {return loaded_version != CLIENT_VERSION_NONE;}
+	bool IsAssetsLoaded() const {return assets_loaded;}
 
 	// Centers current view on position
 	void SetScreenCenterPosition(Position pos);
@@ -404,6 +403,7 @@ protected:
 
 	wxGLContext* OGLContext;
 
+	bool assets_loaded;
 	ClientVersionID loaded_version;
 	EditorMode mode;
 	bool pasting;

@@ -273,7 +273,6 @@ public:
 	bool loadEditorSprites();
 	// Metadata should be loaded first
 	// This fills the item / creature adress space
-	bool loadOTFI(const FileName& filename, wxString& error, wxArrayString& warnings);
 	bool loadSpriteMetadata(const FileName& datafile, wxString& error, wxArrayString& warnings);
 	bool loadSpriteMetadataFlags(FileReadHandle& file, GameSprite* sType, wxString& error, wxArrayString& warnings);
 	bool loadSpriteData(const FileName& datafile, wxString& error, wxArrayString& warnings);
@@ -305,7 +304,6 @@ private:
 	DatFormat dat_format;
 	uint16_t item_count;
 	uint16_t creature_count;
-	bool otfi_found;
 	bool is_extended;
 	bool has_transparency;
 	bool has_frame_durations;

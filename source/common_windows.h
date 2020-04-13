@@ -60,14 +60,10 @@ public:
 	MapPropertiesWindow(wxWindow* parent, MapTab* tab, Editor& editor);
 	virtual ~MapPropertiesWindow();
 
-	void OnChangeVersion(wxCommandEvent&);
-
 	void OnClickOK(wxCommandEvent&);
 	void OnClickCancel(wxCommandEvent&);
 
 protected:
-	void UpdateProtocolList();
-
 	MapTab* view;
 	Editor& editor;
 	wxSpinCtrl* height_spin;

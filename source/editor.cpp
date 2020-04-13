@@ -38,29 +38,9 @@ Editor::Editor(CopyBuffer& copybuffer) :
 {
 	wxString error;
 	wxArrayString warnings;
-	bool ok = true;
 
-	ClientVersionID defaultVersion = ClientVersionID(g_settings.getInteger(Config::DEFAULT_CLIENT_VERSION));
-	if(defaultVersion == CLIENT_VERSION_NONE)
-		defaultVersion = ClientVersion::getLatestVersion()->getID();
-
-	if(g_gui.GetCurrentVersionID() != defaultVersion) {
-		if(g_gui.CloseAllEditors()) {
-			ok = g_gui.LoadVersion(defaultVersion, error, warnings);
-			g_gui.PopupDialog("Error", error, wxOK);
-			g_gui.ListDialog("Warnings", warnings);
-		} else {
-			throw std::runtime_error("All maps of different versions were not closed.");
-		}
-	}
-
-	if(!ok)
+	if(!g_gui.LoadVersion(error, warnings))
 		throw std::runtime_error("Couldn't load client version");
-
-	MapVersion version;
-	version.otbm = g_gui.GetCurrentVersion().getPrefferedMapVersionID();
-	version.client = g_gui.GetCurrentVersionID();
-	map.convert(version);
 
 	map.height = 2048;
 	map.width = 2048;
@@ -68,7 +48,7 @@ Editor::Editor(CopyBuffer& copybuffer) :
 	static int unnamed_counter = 0;
 
 	std::string sname = "Untitled-" + i2s(++unnamed_counter);
-	map.name = sname + ".otbm";
+	map.name = sname + ".rbm";
 	map.spawnfile = sname + "-spawn.xml";
 	map.housefile = sname + "-house.xml";
 	map.description = "No map description available.";
@@ -88,25 +68,15 @@ Editor::Editor(CopyBuffer& copybuffer, const FileName& fn) :
 	MapVersion ver;
 	if(!IOMapOTBM::getVersionInfo(fn, ver)) {
 		// g_gui.PopupDialog("Error", "Could not open file \"" + fn.GetFullPath() + "\".", wxOK);
-		throw std::runtime_error("Could not open file \"" + nstr(fn.GetFullPath()) + "\".\nThis is not a valid OTBM file or it does not exist.");
+		throw std::runtime_error("Could not open file \"" + nstr(fn.GetFullPath()) + "\".\nThis is not a valid RBM file or it does not exist.");
 	}
-
-	/*
-	if(ver < CLIENT_VERSION_760) {
-		long b = g_gui.PopupDialog("Error", "Unsupported Client Version (pre 7.6), do you want to try to load the map anyways?", wxYES | wxNO);
-		if(b == wxID_NO) {
-			valid_state = false;
-			return;
-		}
-	}
-	*/
 
 	bool success = true;
 	if(g_gui.GetCurrentVersionID() != ver.client) {
 		wxString error;
 		wxArrayString warnings;
 		if(g_gui.CloseAllEditors()) {
-			success = g_gui.LoadVersion(ver.client, error, warnings);
+			success = g_gui.LoadVersion(error, warnings);
 			if(!success)
 				g_gui.PopupDialog("Error", error, wxOK);
 			else
@@ -117,18 +87,8 @@ Editor::Editor(CopyBuffer& copybuffer, const FileName& fn) :
 	}
 
 	if(success) {
-		ScopedLoadingBar LoadingBar("Loading OTBM map...");
+		ScopedLoadingBar LoadingBar("Loading RBM map...");
 		success = map.open(nstr(fn.GetFullPath()));
-		/* TODO
-		if(success && ver.client == CLIENT_VERSION_854_BAD) {
-			int ok = g_gui.PopupDialog("Incorrect OTB", "This map has been saved with an incorrect OTB version, do you want to convert it to the new OTB version?\n\nIf you are not sure, click Yes.", wxYES | wxNO);
-
-			if(ok == wxID_YES){
-				ver.client = CLIENT_VERSION_854;
-				map.convert(ver);
-			}
-		}
-		*/
 	}
 }
 
@@ -201,16 +161,16 @@ void Editor::saveMap(FileName filename, bool showdialog)
 	//converter.Assign(wxstr(savefile));
 	std::string backup_otbm, backup_house, backup_spawn;
 
-	if(converter.GetExt() == "otgz") {
+	if(converter.GetExt() == "rgz") {
 		save_otgz = true;
 		if(converter.FileExists()) {
-			backup_otbm = map_path + nstr(converter.GetName()) + ".otgz~";
+			backup_otbm = map_path + nstr(converter.GetName()) + ".rgz~";
 			std::remove(backup_otbm.c_str());
 			std::rename(savefile.c_str(), backup_otbm.c_str());
 		}
 	} else {
 		if(converter.FileExists()) {
-			backup_otbm = map_path + nstr(converter.GetName()) + ".otbm~";
+			backup_otbm = map_path + nstr(converter.GetName()) + ".rbm~";
 			std::remove(backup_otbm.c_str());
 			std::rename(savefile.c_str(), backup_otbm.c_str());
 		}
@@ -248,7 +208,7 @@ void Editor::saveMap(FileName filename, bool showdialog)
 		map.name = fn.GetFullName().mb_str(wxConvUTF8);
 
 		if(showdialog)
-			g_gui.CreateLoadBar("Saving OTBM map...");
+			g_gui.CreateLoadBar("Saving RBM map...");
 
 		// Perform the actual save
 		IOMapOTBM mapsaver(map.getVersion());
@@ -263,7 +223,7 @@ void Editor::saveMap(FileName filename, bool showdialog)
 			if(!backup_otbm.empty()) {
 				converter.SetFullName(wxstr(savefile));
 				std::string otbm_filename = map_path + nstr(converter.GetName());
-				std::rename(backup_otbm.c_str(), std::string(otbm_filename + (save_otgz ? ".otgz" : ".otbm")).c_str());
+				std::rename(backup_otbm.c_str(), std::string(otbm_filename + (save_otgz ? ".rgz" : ".rbm")).c_str());
 			}
 
 			if(!backup_house.empty()) {
@@ -315,7 +275,7 @@ void Editor::saveMap(FileName filename, bool showdialog)
 		if(!backup_otbm.empty()) {
 			converter.SetFullName(wxstr(savefile));
 			std::string otbm_filename = map_path + nstr(converter.GetName());
-			std::rename(backup_otbm.c_str(), std::string(otbm_filename + "." + date.str() + (save_otgz ? ".otgz" : ".otbm")).c_str());
+			std::rename(backup_otbm.c_str(), std::string(otbm_filename + "." + date.str() + (save_otgz ? ".rgz" : ".rbm")).c_str());
 		}
 
 		if(!backup_house.empty()) {

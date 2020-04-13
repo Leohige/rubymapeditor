@@ -69,7 +69,7 @@ enum ClientVersions {
 	CLIENT_VERSION_1021 = 52
 };
 
-// OTBM versions
+// RBM versions
 enum MapVersionID
 {
 	MAP_OTBM_UNKNOWN = -1,
@@ -200,8 +200,6 @@ public:
 
 	bool operator==(const ClientVersion& o) const {return otb.id == o.otb.id;}
 
-	bool hasValidPaths();
-	bool loadValidPaths();
 	void setClientPath(const FileName& dir);
 
 	bool isVisible() const;

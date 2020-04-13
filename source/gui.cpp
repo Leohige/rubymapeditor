@@ -61,6 +61,7 @@ GUI::GUI() :
 	window_door_brush(nullptr),
 
 	OGLContext(nullptr),
+	assets_loaded(false),
 	loaded_version(CLIENT_VERSION_NONE),
 	mode(SELECTION_MODE),
 	pasting(false),
@@ -210,73 +211,23 @@ wxString GUI::GetExtensionsDirectory()
 	return local_directory.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR);
 }
 
-void GUI::discoverDataDirectory(const wxString& existentFile)
+bool GUI::LoadVersion(wxString& error, wxArrayString& warnings, bool force)
 {
-	wxString currentDir = wxGetCwd();
-	wxString execDir = GetExecDirectory();
-
-	wxString possiblePaths[] = {
-		execDir,
-		currentDir + "/",
-
-		// these are used usually when running from build directories
-		execDir + "/../",
-		execDir + "/../../",
-		execDir + "/../../../",
-		currentDir + "/../",
-	};
-
-	bool found = false;
-	for(const wxString& path : possiblePaths) {
-		if(wxFileName(path + "data/" + existentFile).FileExists()) {
-			m_dataDirectory = path + "data/";
-			found = true;
-			break;
-		}
+	if (assets_loaded && !force) {
+		return true;
 	}
 
-	if(!found)
-		wxLogError(wxString() + "Could not find data directory.\n");
-}
+	UnnamedRenderingLock();
+	DestroyPalettes();
+	DestroyMinimap();
+	UnloadAssets();
 
-bool GUI::LoadVersion(ClientVersionID version, wxString& error, wxArrayString& warnings, bool force)
-{
-	if(ClientVersion::get(version) == nullptr) {
-		error = "Unsupported client version! (8)";
-		return false;
+	if (LoadDataFiles(error, warnings)) {
+		assets_loaded = true;
+		g_gui.LoadPerspective();
 	}
 
-	if(version != loaded_version || force) {
-		if(getLoadedVersion() != nullptr)
-			// There is another version loaded right now, save window layout
-			g_gui.SavePerspective();
-
-		// Disable all rendering so the data is not accessed while reloading
-		UnnamedRenderingLock();
-		DestroyPalettes();
-		DestroyMinimap();
-
-		// Destroy the previous version
-		UnloadVersion();
-
-		loaded_version = version;
-		if(!getLoadedVersion()->hasValidPaths()) {
-			if(!getLoadedVersion()->loadValidPaths()) {
-				error = "Couldn't load relevant asset files";
-				loaded_version = CLIENT_VERSION_NONE;
-				return false;
-			}
-		}
-
-		bool ret = LoadDataFiles(error, warnings);
-		if(ret)
-			g_gui.LoadPerspective();
-		else
-			loaded_version = CLIENT_VERSION_NONE;
-
-		return ret;
-	}
-	return true;
+	return assets_loaded;
 }
 
 void GUI::EnableHotkeys()
@@ -315,8 +266,8 @@ void GUI::CycleTab(bool forward)
 
 bool GUI::LoadDataFiles(wxString& error, wxArrayString& warnings)
 {
-	FileName data_path = getLoadedVersion()->getDataPath();
-	FileName client_path = getLoadedVersion()->getClientPath();
+	FileName data_path = FileName(g_gui.GetDataDirectory() + FileName::GetPathSeparator());
+	FileName client_path = FileName(g_settings.getString(Config::ASSETS_DIRECTORY) + FileName::GetPathSeparator());
 	FileName extension_path = GetExtensionsDirectory();
 
 	FileName exec_directory;
@@ -330,69 +281,34 @@ bool GUI::LoadDataFiles(wxString& error, wxArrayString& warnings)
 		return false;
 	}
 
-	g_gui.gfx.client_version = getLoadedVersion();
-
-	if(!g_gui.gfx.loadOTFI(client_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR), error, warnings)) {
-		error = "Couldn't load otfi file: " + error;
-		g_gui.DestroyLoadBar();
-		UnloadVersion();
-		return false;
-	}
-
 	g_gui.CreateLoadBar("Loading asset files");
 	g_gui.SetLoadDone(0, "Loading metadata file...");
-
-	wxFileName metadata_path = g_gui.gfx.getMetadataFileName();
-	if(!g_gui.gfx.loadSpriteMetadata(metadata_path, error, warnings)) {
+	if(!g_gui.gfx.loadSpriteMetadata(wxString(client_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + (wxString(ASSETS_NAME) + ".dat")), error, warnings)) {
 		error = "Couldn't load metadata: " + error;
 		g_gui.DestroyLoadBar();
-		UnloadVersion();
+		UnloadAssets();
 		return false;
 	}
 
 	g_gui.SetLoadDone(10, "Loading sprites file...");
-
-	wxFileName sprites_path = g_gui.gfx.getSpritesFileName();
-	if(!g_gui.gfx.loadSpriteData(sprites_path.GetFullPath(), error, warnings)) {
+	if(!g_gui.gfx.loadSpriteData(wxString(client_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + (wxString(ASSETS_NAME) + ".spr")), error, warnings)) {
 		error = "Couldn't load sprites: " + error;
 		g_gui.DestroyLoadBar();
-		UnloadVersion();
+		UnloadAssets();
 		return false;
 	}
-
-	// g_gui.SetLoadDone(20, "Loading items.otb file...");
-	// if(!g_items.loadFromOtb(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "items.otb"), error, warnings)) {
-	// 	error = "Couldn't load items.otb: " + error;
-	// 	g_gui.DestroyLoadBar();
-	// 	UnloadVersion();
-	// 	return false;
-	// }
 
 	g_gui.SetLoadDone(20, "Loading items.yaml file...");
 	if(!g_items.loadFromYAML(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "items.yaml"), error, warnings)) {
 		error = "Couldn't load items.yaml: " + error;
 		g_gui.DestroyLoadBar();
-		UnloadVersion();
+		UnloadAssets();
 		return false;
 	}
-
-	// g_gui.SetLoadDone(30, "Loading items.xml ...");
-	// if(!g_items.loadFromGameXml(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "items.xml"), error, warnings)) {
-	// 	warnings.push_back("Couldn't load items.xml: " + error);
-	// }
 
 	g_gui.SetLoadDone(45, "Loading creatures.xml ...");
 	if(!g_creatures.loadFromXML(wxString(data_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR) + "creatures.xml"), true, error, warnings)) {
 		warnings.push_back("Couldn't load creatures.xml: " + error);
-	}
-
-	g_gui.SetLoadDone(45, "Loading user creatures.xml ...");
-	{
-		FileName cdb = getLoadedVersion()->getLocalDataPath();
-		cdb.SetFullName("creatures.xml");
-		wxString nerr;
-		wxArrayString nwarn;
-		g_creatures.loadFromXML(cdb, false, nerr, nwarn);
 	}
 
 	g_gui.SetLoadDone(50, "Loading materials.xml ...");
@@ -402,7 +318,7 @@ bool GUI::LoadDataFiles(wxString& error, wxArrayString& warnings)
 
 	g_gui.SetLoadDone(70, "Loading extensions...");
 	if(!g_materials.loadExtensions(extension_path, error, warnings)) {
-		//warnings.push_back("Couldn't load extensions: " + error);
+		warnings.push_back("Couldn't load extensions: " + error);
 	}
 
 	g_gui.SetLoadDone(70, "Finishing...");
@@ -413,7 +329,7 @@ bool GUI::LoadDataFiles(wxString& error, wxArrayString& warnings)
 	return true;
 }
 
-void GUI::UnloadVersion()
+void GUI::UnloadAssets()
 {
 	UnnamedRenderingLock();
 	gfx.clear();
@@ -432,20 +348,13 @@ void GUI::UnloadVersion()
 	hatch_door_brush = nullptr;
 	window_door_brush = nullptr;
 
-	if(loaded_version != CLIENT_VERSION_NONE) {
-		//g_gui.UnloadVersion();
-		g_materials.clear();
-		g_brushes.clear();
-		g_items.clear();
-		gfx.clear();
+	g_materials.clear();
+	g_brushes.clear();
+	g_items.clear();
+	gfx.clear();
+	g_creatures.clear();
 
-		FileName cdb = getLoadedVersion()->getLocalDataPath();
-		cdb.SetFullName("creatures.xml");
-		g_creatures.saveToXML(cdb);
-		g_creatures.clear();
-
-		loaded_version = CLIENT_VERSION_NONE;
-	}
+	assets_loaded = false;
 }
 
 void GUI::SaveCurrentMap(FileName filename, bool showdialog)
@@ -768,7 +677,7 @@ void GUI::NewMapView()
 
 void GUI::LoadPerspective()
 {
-	if(!IsVersionLoaded()) {
+	if(!IsAssetsLoaded()) {
 		if(g_settings.getInteger(Config::WINDOW_MAXIMIZED)) {
 			root->Maximize();
 		} else {
@@ -936,7 +845,7 @@ void GUI::RefreshOtherPalettes(PaletteWindow* p)
 
 PaletteWindow* GUI::CreatePalette()
 {
-	if(!IsVersionLoaded())
+	if(!IsAssetsLoaded())
 		return nullptr;
 
 	auto *palette = newd PaletteWindow(root, g_materials.tilesets);
@@ -1012,7 +921,7 @@ void GUI::SelectPalettePage(PaletteType pt)
 
 void GUI::CreateMinimap()
 {
-	if(!IsVersionLoaded())
+	if(!IsAssetsLoaded())
 		return;
 
 	if(minimap) {

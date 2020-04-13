@@ -412,7 +412,7 @@ bool Container::serializeItemNode_OTBM(const IOMap& maphandle, NodeFileWriteHand
 bool IOMapOTBM::getVersionInfo(const FileName& filename, MapVersion& out_ver)
 {
 #ifdef OTGZ_SUPPORT
-	if(filename.GetExt() == "otgz") {
+	if(filename.GetExt() == "rgz") {
 		// Open the archive
 		std::shared_ptr<struct archive> a(archive_read_new(), archive_read_free);
 		archive_read_support_filter_all(a.get());
@@ -420,13 +420,13 @@ bool IOMapOTBM::getVersionInfo(const FileName& filename, MapVersion& out_ver)
 		if(archive_read_open_filename(a.get(), nstr(filename.GetFullPath()).c_str(), 10240) != ARCHIVE_OK)
 			 return false;
 
-		// Loop over the archive entries until we find the otbm file
+		// Loop over the archive entries until we find the rbm file
 		struct archive_entry* entry;
 		while(archive_read_next_header(a.get(), &entry) == ARCHIVE_OK) {
 			std::string entryName = archive_entry_pathname(entry);
 
-			if(entryName == "world/map.otbm") {
-				// Read the OTBM header into temporary memory
+			if(entryName == "world/map.rbm") {
+				// Read the RBM header into temporary memory
 				uint8_t buffer[8096];
 				memset(buffer, 0, 8096);
 
@@ -445,13 +445,13 @@ bool IOMapOTBM::getVersionInfo(const FileName& filename, MapVersion& out_ver)
 			}
 		}
 
-		// Didn't find OTBM file, lame
+		// Didn't find RBM file, lame
 		return false;
 	}
 #endif
 
 	// Just open a disk-based read handle
-	DiskNodeFileReadHandle f(nstr(filename.GetFullPath()), StringVector(1, "OTBM"));
+	DiskNodeFileReadHandle f(nstr(filename.GetFullPath()), StringVector(1, "RBM"));
 	if(!f.isOk())
 		return false;
 	return getVersionInfo(&f, out_ver);
@@ -487,7 +487,7 @@ bool IOMapOTBM::getVersionInfo(NodeFileReadHandle* f,  MapVersion& out_ver)
 bool IOMapOTBM::loadMap(Map& map, const FileName& filename)
 {
 #ifdef OTGZ_SUPPORT
-	if(filename.GetExt() == "otgz") {
+	if(filename.GetExt() == "rgz") {
 		// Open the archive
 		std::shared_ptr<struct archive> a(archive_read_new(), archive_read_free);
 		archive_read_support_filter_all(a.get());
@@ -501,17 +501,17 @@ bool IOMapOTBM::loadMap(Map& map, const FileName& filename)
 		size_t house_buffer_size = 0;
 		size_t spawn_buffer_size = 0;
 
-		// See if the otbm file has been loaded
+		// See if the rbm file has been loaded
 		bool otbm_loaded = false;
 
-		// Loop over the archive entries until we find the otbm file
+		// Loop over the archive entries until we find the rbm file
 		g_gui.SetLoadDone(0, "Decompressing archive...");
 		struct archive_entry* entry;
 		while(archive_read_next_header(a.get(), &entry) == ARCHIVE_OK) {
 			std::string entryName = archive_entry_pathname(entry);
 
-			if(entryName == "world/map.otbm") {
-				// Read the entire OTBM file into a memory region
+			if(entryName == "world/map.rbm") {
+				// Read the entire RBM file into a memory region
 				size_t otbm_size = archive_entry_size(entry);
 				std::shared_ptr<uint8_t> otbm_buffer(new uint8_t[otbm_size], [](uint8_t* p) { delete[] p; });
 
@@ -527,7 +527,7 @@ bool IOMapOTBM::loadMap(Map& map, const FileName& filename)
 					return false;
 				}
 
-				g_gui.SetLoadDone(0, "Loading OTBM map...");
+				g_gui.SetLoadDone(0, "Loading RBM map...");
 
 				// Create a read handle on it
 				std::shared_ptr<NodeFileReadHandle> f(
@@ -535,7 +535,7 @@ bool IOMapOTBM::loadMap(Map& map, const FileName& filename)
 
 				// Read the version info
 				if(!loadMap(map, *f.get())) {
-					error("Could not load OTBM file inside archive");
+					error("Could not load RBM file inside archive");
 					return false;
 				}
 
@@ -570,7 +570,7 @@ bool IOMapOTBM::loadMap(Map& map, const FileName& filename)
 		}
 
 		if(!otbm_loaded) {
-			error("OTBM file not found inside archive.");
+			error("RBM file not found inside archive.");
 			return false;
 		}
 
@@ -604,7 +604,7 @@ bool IOMapOTBM::loadMap(Map& map, const FileName& filename)
 	}
 #endif
 
-	DiskNodeFileReadHandle f(nstr(filename.GetFullPath()), StringVector(1, "OTBM"));
+	DiskNodeFileReadHandle f(nstr(filename.GetFullPath()), StringVector(1, "RBM"));
 	if(!f.isOk()) {
 		error(("Couldn't open file for reading\nThe error reported was: " + wxstr(f.getErrorMessage())).wc_str());
 		return false;
@@ -646,12 +646,12 @@ bool IOMapOTBM::loadMap(Map& map, NodeFileReadHandle& f)
 	if(version.otbm > MAP_OTBM_4) {
 		// Failed to read version
 		if(g_gui.PopupDialog("Map error",
-			"The loaded map appears to be a OTBM format that is not supported by the editor."
+			"The loaded map appears to be a RBM format that is not supported by the editor."
 			"Do you still want to attempt to load the map?", wxYES | wxNO) == wxID_YES)
 		{
 			warning("Unsupported or damaged map version");
 		} else {
-			error("Unsupported OTBM version, could not load map");
+			error("Unsupported RBM version, could not load map");
 			return false;
 		}
 	}
@@ -665,22 +665,25 @@ bool IOMapOTBM::loadMap(Map& map, NodeFileReadHandle& f)
 
 	map.height = u16;
 
+	// remove
 	if(!root->getU32(u32) || u32 > (unsigned long)g_items.MajorVersion) { // OTB major version
-		if(g_gui.PopupDialog("Map error",
-			"The loaded map appears to be a items.otb format that deviates from the "
-			"items.otb loaded by the editor. Do you still want to attempt to load the map?", wxYES | wxNO) == wxID_YES)
-		{
-			warning("Unsupported or damaged map version");
-		} else {
-			error("Outdated items.otb, could not load map");
-			return false;
-		}
+		// if(g_gui.PopupDialog("Map error",
+		// 	"The loaded map appears to be a items.otb format that deviates from the "
+		// 	"items.otb loaded by the editor. Do you still want to attempt to load the map?", wxYES | wxNO) == wxID_YES)
+		// {
+		// 	warning("Unsupported or damaged map version");
+		// } else {
+		// 	error("Outdated items.otb, could not load map");
+		// 	return false;
+		// }
 	}
 
+	// remove
 	if(!root->getU32(u32) || u32 > (unsigned long)g_items.MinorVersion) { // OTB minor version
-		warning("This editor needs an updated items.otb version");
+		// warning("This editor needs an updated items.otb version");
 	}
-	version.client = (ClientVersionID)u32;
+
+	version.client = (ClientVersionID)55;
 
 	BinaryNode* mapHeaderNode = root->getChild();
 	if(mapHeaderNode == nullptr || !mapHeaderNode->getByte(u8) || u8 != OTBM_MAP_DATA) {
@@ -1149,7 +1152,7 @@ bool IOMapOTBM::loadHouses(Map& map, pugi::xml_document& doc)
 bool IOMapOTBM::saveMap(Map& map, const FileName& identifier)
 {
 #ifdef OTGZ_SUPPORT
-	if(identifier.GetExt() == "otgz") {
+	if(identifier.GetExt() == "rgz") {
 		// Create the archive
 		struct archive* a = archive_write_new();
 		struct archive_entry* entry = nullptr;
@@ -1207,7 +1210,7 @@ bool IOMapOTBM::saveMap(Map& map, const FileName& identifier)
 			streamData.str("");
 		}
 
-		g_gui.SetLoadDone(0, "Saving OTBM map...");
+		g_gui.SetLoadDone(0, "Saving RBM map...");
 
 		MemoryNodeFileWriteHandle otbmWriter;
 		saveMap(map, otbmWriter);
@@ -1216,17 +1219,17 @@ bool IOMapOTBM::saveMap(Map& map, const FileName& identifier)
 
 		// Create an archive entry for the otbm file
 		entry = archive_entry_new();
-		archive_entry_set_pathname(entry, "world/map.otbm");
+		archive_entry_set_pathname(entry, "world/map.rbm");
 		archive_entry_set_size(entry, otbmWriter.getSize() + 4); // 4 bytes extra for header
 		archive_entry_set_filetype(entry, AE_IFREG);
 		archive_entry_set_perm(entry, 0644);
 		archive_write_header(a, entry);
 
 		// Write the version header
-		char otbm_identifier[] = "OTBM";
+		char otbm_identifier[] = "RBM";
 		archive_write_data(a, otbm_identifier, 4);
 
-		// Write the OTBM data
+		// Write the RBM data
 		archive_write_data(a, otbmWriter.getMemory(), otbmWriter.getSize());
 		archive_entry_free(entry);
 
@@ -1241,7 +1244,7 @@ bool IOMapOTBM::saveMap(Map& map, const FileName& identifier)
 
 	DiskNodeFileWriteHandle f(
 		nstr(identifier.GetFullPath()),
-		(g_settings.getInteger(Config::SAVE_WITH_OTB_MAGIC_NUMBER) ? "OTBM" : std::string(4, '\0'))
+		(g_settings.getInteger(Config::SAVE_WITH_OTB_MAGIC_NUMBER) ? "RBM" : std::string(4, '\0'))
 		);
 
 	if(!f.isOk()) {
@@ -1285,8 +1288,8 @@ bool IOMapOTBM::saveMap(Map& map, NodeFileWriteHandle& f)
 		f.addU16(map.width);
 		f.addU16(map.height);
 
-		f.addU32(g_items.MajorVersion);
-		f.addU32(g_items.MinorVersion);
+		f.addU32(g_items.MajorVersion); // remove
+		f.addU32(g_items.MinorVersion); // remove
 
 		f.addNode(OTBM_MAP_DATA);
 		{

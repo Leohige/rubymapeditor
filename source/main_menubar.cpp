@@ -281,7 +281,7 @@ void MainMenuBar::Update()
 		EnableItem(PASTE, false);
 	}
 
-	bool loaded = g_gui.IsVersionLoaded();
+	bool loaded = g_gui.IsAssetsLoaded();
 	bool has_map = editor != nullptr;
 	bool has_selection = editor && editor->hasSelection();
 	bool is_live = editor && editor->IsLive();
@@ -769,7 +769,7 @@ void MainMenuBar::OnReloadDataFiles(wxCommandEvent& WXUNUSED(event))
 {
 	wxString error;
 	wxArrayString warnings;
-	g_gui.LoadVersion(g_gui.GetCurrentVersionID(), error, warnings, true);
+	g_gui.LoadVersion(error, warnings, true);
 	g_gui.PopupDialog("Error", error, wxOK);
 	g_gui.ListDialog("Warnings", warnings);
 }
@@ -1135,7 +1135,7 @@ void MainMenuBar::OnRandomizeMap(wxCommandEvent& WXUNUSED(event))
 
 void MainMenuBar::OnJumpToBrush(wxCommandEvent& WXUNUSED(event))
 {
-	if(!g_gui.IsVersionLoaded())
+	if(!g_gui.IsAssetsLoaded())
 		return;
 
 	// Create the jump to dialog
@@ -1154,7 +1154,7 @@ void MainMenuBar::OnJumpToBrush(wxCommandEvent& WXUNUSED(event))
 
 void MainMenuBar::OnJumpToItemBrush(wxCommandEvent& WXUNUSED(event))
 {
-	if(!g_gui.IsVersionLoaded())
+	if(!g_gui.IsAssetsLoaded())
 		return;
 
 	// Create the jump to dialog

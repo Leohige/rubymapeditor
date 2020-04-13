@@ -120,7 +120,7 @@ bool Map::open(const std::string file)
 bool Map::convert(MapVersion to, bool showdialog)
 {
 	if(mapVersion.client == to.client) {
-		// Only OTBM version differs
+		// Only RBM version differs
 		// No changes necessary
 		mapVersion = to;
 		return true;

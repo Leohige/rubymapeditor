@@ -23,7 +23,7 @@ ClientVersion::OtbMap ClientVersion::otb_versions;
 void ClientVersion::loadVersions()
 {
 	// Clean up old stuff
-	ClientVersion::unloadVersions();
+	//ClientVersion::unloadVersions();
 
 	// Locate the clients.xml file
 	wxFileName file_to_load;
@@ -422,94 +422,6 @@ FileName ClientVersion::getLocalDataPath() const
 	FileName f = g_gui.GetLocalDataDirectory() + data_path + FileName::GetPathSeparator();
 	f.Mkdir(0755, wxPATH_MKDIR_FULL);
 	return f;
-}
-
-bool ClientVersion::hasValidPaths()
-{
-	if(!client_path.DirExists()) {
-		return false;
-	}
-
-	wxDir dir(client_path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR));
-	wxString otfi_file;
-	metadata_path = wxFileName(client_path.GetFullPath(), wxString(ASSETS_NAME) + ".dat");
-	sprites_path = wxFileName(client_path.GetFullPath(), wxString(ASSETS_NAME) + ".spr");
-
-	if(dir.GetFirst(&otfi_file, "*.otfi", wxDIR_FILES)) {
-		wxFileName otfi(client_path.GetFullPath(), otfi_file);
-		OTMLDocumentPtr doc = OTMLDocument::parse(otfi.GetFullPath().ToStdString());
-		if(doc->size() != 0 && doc->hasChildAt("DatSpr")) {
-			OTMLNodePtr node = doc->get("DatSpr");
-			std::string metadata = node->valueAt<std::string>("metadata-file", std::string(ASSETS_NAME) + ".dat");
-			std::string sprites = node->valueAt<std::string>("sprites-file", std::string(ASSETS_NAME) + ".spr");
-			metadata_path = wxFileName(client_path.GetFullPath(), wxString(metadata));
-			sprites_path = wxFileName(client_path.GetFullPath(), wxString(sprites));
-		}
-	}
-
-	if(!metadata_path.FileExists() || !sprites_path.FileExists()) {
-		return false;
-	}
-
-	if(!g_settings.getInteger(Config::CHECK_SIGNATURES)) {
-		return true;
-	}
-
-	// Peek the version of the files
-	FileReadHandle dat_file(static_cast<const char*>(metadata_path.GetFullPath().mb_str()));
-	if(!dat_file.isOk()) {
-		wxLogError("Could not open metadata file.");
-		return false;
-	}
-
-	uint32_t datSignature;
-	dat_file.getU32(datSignature);
-	dat_file.close();
-
-	FileReadHandle spr_file(static_cast<const char*>(sprites_path.GetFullPath().mb_str()));
-	if(!spr_file.isOk()) {
-		wxLogError("Could not open sprites file.");
-		return false;
-	}
-
-	uint32_t sprSignature;
-	spr_file.getU32(sprSignature);
-	spr_file.close();
-
-	for(const auto& clientData : data_versions) {
-		if(clientData.sprSignature == sprSignature && clientData.datSignature == datSignature) {
-			return true;
-		}
-	}
-
-	wxString message = "Signatures are incorrect.\n";
-	message << "Metadata signature: %X\n";
-	message << "Sprites signature: %X";
-	wxLogError(wxString::Format(message, datSignature, sprSignature));
-	return false;
-}
-
-bool ClientVersion::loadValidPaths()
-{
-	while(!hasValidPaths()) {
-		wxString message = "Could not locate metadata and/or sprite files, please navigate to your client assets %s installation folder.\n";
-		message << "Attempted metadata file: %s\n";
-		message << "Attempted sprites file: %s\n";
-
-		g_gui.PopupDialog("Error", wxString::Format(message, name, metadata_path.GetFullPath(), sprites_path.GetFullPath()), wxOK);
-
-		wxString dirHelpText("Select assets directory.");
-		wxDirDialog file_dlg(nullptr, dirHelpText, "", wxDD_DIR_MUST_EXIST);
-		int ok = file_dlg.ShowModal();
-		if(ok == wxID_CANCEL)
-			return false;
-
-		client_path.Assign(file_dlg.GetPath() + FileName::GetPathSeparator());
-	}
-
-	ClientVersion::saveVersions();
-
-	return true;
 }
 
 DatFormat ClientVersion::getDatFormatForSignature(uint32_t signature) const

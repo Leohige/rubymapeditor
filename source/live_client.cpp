@@ -416,7 +416,7 @@ void LiveClient::parseChangeClientVersion(NetworkMessage& message)
 
 	wxString error;
 	wxArrayString warnings;
-	g_gui.LoadVersion(clientVersion, error, warnings);
+	g_gui.LoadVersion(error, warnings);
 
 	sendReady();
 }

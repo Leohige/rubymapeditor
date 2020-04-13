@@ -107,7 +107,7 @@ void ContainerItemButton::OnEditItem(wxCommandEvent& WXUNUSED(event))
 
 	wxDialog* d;
 
-	//if(edit_map->getVersion().otbm >= MAP_OTBM_4)
+	//if(edit_map->getVersion().rbm >= MAP_OTBM_4)
 		d = newd PropertiesWindow(this, edit_map, nullptr, edit_item, newDialogAt);
 	//else
 	//	d = newd OldPropertiesWindow(this, edit_map, nullptr, edit_item, newDialogAt);

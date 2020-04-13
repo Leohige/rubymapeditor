@@ -29,8 +29,7 @@
 class PreferencesWindow : public wxDialog
 {
 public:
-	explicit PreferencesWindow(wxWindow* parent) : PreferencesWindow(parent, false) {};
-    PreferencesWindow(wxWindow* parent, bool clientVersionSelected);
+	explicit PreferencesWindow(wxWindow* parent);
 	virtual ~PreferencesWindow();
 
 	void OnClickDefaults(wxCommandEvent&);
@@ -78,6 +77,7 @@ protected:
 	wxCheckBox* hide_items_when_zoomed_chkbox;
 	wxColourPickerCtrl* cursor_color_pick;
 	wxColourPickerCtrl* cursor_alt_color_pick;
+	wxDirPickerCtrl* assets_directory_picker;
 	/*
 	wxCheckBox* texture_managment_chkbox;
 	wxSpinCtrl* clean_interval_spin;
@@ -107,11 +107,6 @@ protected:
 	wxSlider* scroll_speed_slider;
 	wxSlider* zoom_speed_slider;
 
-	// Client info
-	wxChoice* default_version_choice;
-	std::vector<wxDirPickerCtrl*> version_dir_pickers;
-	wxCheckBox* check_sigs_chkbox;
-
 	// Create controls
 	wxChoice* AddPaletteStyleChoice(wxWindow* parent, wxSizer* sizer, const wxString& short_description, const wxString& description, const std::string& setting);
 	void SetPaletteStyleChoice(wxChoice* ctrl, int key);
@@ -121,7 +116,6 @@ protected:
 	wxNotebookPage* CreateGraphicsPage();
 	wxNotebookPage* CreateUIPage();
 	wxNotebookPage* CreateEditorPage();
-	wxNotebookPage* CreateClientPage();
 
 	DECLARE_EVENT_TABLE()
 };

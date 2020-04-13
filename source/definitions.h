@@ -129,11 +129,11 @@
 #define CLIENT_MAP_WIDTH 18
 #define CLIENT_MAP_HEIGHT 14
 
-#define MAP_LOAD_FILE_WILDCARD_OTGZ "OpenTibia Binary Map (*.otbm;*.otgz)|*.otbm;*.otgz"
-#define MAP_SAVE_FILE_WILDCARD_OTGZ "OpenTibia Binary Map (*.otbm)|*.otbm|Compressed OpenTibia Binary Map (*.otgz)|*.otgz"
+#define MAP_LOAD_FILE_WILDCARD_OTGZ "Ruby Binary Map (*.rbm;*.rgz)|*.rbm;*.rgz"
+#define MAP_SAVE_FILE_WILDCARD_OTGZ "Ruby Binary Map (*.rbm)|*.rbm|Compressed Ruby Binary Map (*.rgz)|*.rgz"
 
-#define MAP_LOAD_FILE_WILDCARD "OpenTibia Binary Map (*.otbm)|*.otbm"
-#define MAP_SAVE_FILE_WILDCARD "OpenTibia Binary Map (*.otbm)|*.otbm"
+#define MAP_LOAD_FILE_WILDCARD "Ruby Binary Map (*.rbm)|*.rbm"
+#define MAP_SAVE_FILE_WILDCARD "Ruby Binary Map (*.rbm)|*.rbm"
 
 // wxString conversions
 #define nstr(str) std::string((const char*)(str.mb_str(wxConvUTF8)))

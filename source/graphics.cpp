@@ -63,10 +63,9 @@ GraphicManager::GraphicManager() :
 	client_version(nullptr),
 	unloaded(true),
 	dat_format(DAT_FORMAT_UNKNOWN),
-	otfi_found(false),
-	is_extended(false),
-	has_transparency(false),
-	has_frame_durations(false),
+	is_extended(true),
+	has_transparency(true),
+	has_frame_durations(true),
 	has_frame_groups(false),
 	loaded_textures(0),
 	lastclean(0)
@@ -338,45 +337,6 @@ bool GraphicManager::loadEditorSprites()
 	return true;
 }
 
-bool GraphicManager::loadOTFI(const FileName& filename, wxString& error, wxArrayString& warnings)
-{
-	wxDir dir(filename.GetFullPath());
-	wxString otfi_file;
-
-	otfi_found = false;
-
-	if(dir.GetFirst(&otfi_file, "*.otfi", wxDIR_FILES)) {
-		wxFileName otfi(filename.GetFullPath(), otfi_file);
-		OTMLDocumentPtr doc = OTMLDocument::parse(otfi.GetFullPath().ToStdString());
-		if(doc->size() == 0 || !doc->hasChildAt("DatSpr")) {
-			error += "'DatSpr' tag not found";
-			return false;
-		}
-
-		OTMLNodePtr node = doc->get("DatSpr");
-		is_extended = node->valueAt<bool>("extended");
-		has_transparency = node->valueAt<bool>("transparency");
-		has_frame_durations = node->valueAt<bool>("frame-durations");
-		has_frame_groups = node->valueAt<bool>("frame-groups");
-		std::string metadata = node->valueAt<std::string>("metadata-file", std::string(ASSETS_NAME) + ".dat");
-		std::string sprites = node->valueAt<std::string>("sprites-file", std::string(ASSETS_NAME) + ".spr");
-		metadata_file = wxFileName(filename.GetFullPath(), wxString(metadata));
-		sprites_file = wxFileName(filename.GetFullPath(), wxString(sprites));
-		otfi_found = true;
-	}
-	
-	if(!otfi_found) {
-		is_extended = false;
-		has_transparency = false;
-		has_frame_durations = false;
-		has_frame_groups = false;
-		metadata_file = wxFileName(filename.GetFullPath(), wxString(ASSETS_NAME) + ".dat");
-		sprites_file = wxFileName(filename.GetFullPath(), wxString(ASSETS_NAME) + ".spr");
-	}
-
-	return true;
-}
-
 bool GraphicManager::loadSpriteMetadata(const FileName& datafile, wxString& error, wxArrayString& warnings)
 {
 	// items.otb has most of the info we need. This only loads the GameSprite metadata
@@ -401,13 +361,7 @@ bool GraphicManager::loadSpriteMetadata(const FileName& datafile, wxString& erro
 	// We don't load distance/effects, if we would, just add effect_count & distance_count here
 	uint32_t maxID = item_count + creature_count;
 
-	dat_format = client_version->getDatFormatForSignature(datSignature);
-
-	if(!otfi_found) {
-		is_extended = dat_format >= DAT_FORMAT_96;
-		has_frame_durations = dat_format >= DAT_FORMAT_1050;
-		has_frame_groups = dat_format >= DAT_FORMAT_1057;
-	}
+	dat_format = DAT_FORMAT_1010;
 
 	uint16_t id = minID;
 	// loop through all ItemDatabase until we reach the end of file

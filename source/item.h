@@ -105,7 +105,7 @@ public:
 	virtual const MagicField* getMagicField() const {return nullptr;}
 	*/
 
-	// OTBM map interface
+	// RBM map interface
 		// Serialize and unserialize (for save/load)
 		// Used internally
 		virtual bool readItemAttribute_OTBM(const IOMap& maphandle, OTBM_ItemAttribute attr, BinaryNode* stream);
